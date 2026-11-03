@@ -54,11 +54,48 @@ export function rateLimit(
   return { allowed: true, remaining: limit - recent.length, retryAfterSec: 0 };
 }
 
-/** Adresse IP du client (best-effort derrière un proxy). */
+/**
+ * Vérifie une limite SANS enregistrer de hit (à combiner avec `recordHit`, ex.
+ * pour ne compter que les échecs de connexion).
+ */
+export function checkLimit(
+  key: string,
+  limit: number,
+  windowMs: number,
+  now: number,
+): RateLimitResult {
+  const cutoff = now - windowMs;
+  const recent = (hits.get(key) ?? []).filter((t) => t > cutoff);
+  hits.set(key, recent);
+  if (recent.length >= limit) {
+    const retryAfterSec = Math.max(1, Math.ceil((recent[0] + windowMs - now) / 1000));
+    return { allowed: false, remaining: 0, retryAfterSec };
+  }
+  return { allowed: true, remaining: limit - recent.length, retryAfterSec: 0 };
+}
+
+/** Enregistre un hit pour `key` (voir `checkLimit`). */
+export function recordHit(key: string, now: number): void {
+  const arr = hits.get(key) ?? [];
+  arr.push(now);
+  hits.set(key, arr);
+}
+
+/**
+ * Adresse IP du client, non falsifiable derrière un proxy de confiance.
+ *  - `x-real-ip` : posé par la plateforme / le reverse proxy (Vercel, nginx).
+ *  - sinon la DERNIÈRE entrée de `x-forwarded-for` (ajoutée par le proxy le plus
+ *    proche) — jamais la première, que le client peut forger librement.
+ */
 export function clientIp(req: Request): string {
+  const real = req.headers.get("x-real-ip")?.trim();
+  if (real) return real;
   const xff = req.headers.get("x-forwarded-for");
-  if (xff) return xff.split(",")[0]!.trim();
-  return req.headers.get("x-real-ip")?.trim() || "unknown";
+  if (xff) {
+    const parts = xff.split(",").map((s) => s.trim()).filter(Boolean);
+    if (parts.length) return parts[parts.length - 1]!;
+  }
+  return "unknown";
 }
 
 /**

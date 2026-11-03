@@ -1,0 +1,573 @@
+{
+  "metadata": {
+    "title": "Solid-BTP — Duka Kuu la Vifaa · Kila Kitu cha Ujenzi",
+    "description": "Solid-BTP mjini Daloa: vifaa vya chuma, vifaa vya umeme vya nyumbani, mabomba, umeme, rangi, zana na vifaa vya ujenzi. Kila kitu cha ujenzi, kwa bei nzuri."
+  },
+  "common": {
+    "reset": "Weka upya",
+    "retry": "Jaribu tena",
+    "clear": "Futa",
+    "add": "Ongeza",
+    "cancel": "Ghairi",
+    "save": "Hifadhi",
+    "delete": "Futa",
+    "edit": "Hariri",
+    "loading": "Inapakia…",
+    "imageTooLarge": "Picha ni kubwa mno (kiwango cha juu MB 5).",
+    "aiUnavailable": "Huduma ya AI haipatikani. Tafadhali jaribu tena.",
+    "logoAlt": "Solid-BTP — Duka Kuu la Vifaa, kila kitu cha ujenzi"
+  },
+  "languageSwitcher": {
+    "label": "Lugha",
+    "change": "Badilisha lugha (kwa sasa {language})"
+  },
+  "nav": {
+    "homeAria": "Solid-BTP, mwanzo",
+    "catalogue": "Katalogi",
+    "advice": "Ushauri wa Haraka",
+    "reviews": "Maoni",
+    "findUs": "Tutafute",
+    "contact": "Mawasiliano",
+    "adminSpace": "Eneo la msimamizi",
+    "freeQuote": "Kadirio la bure",
+    "requestQuote": "Omba kadirio",
+    "openMenu": "Fungua menyu",
+    "closeMenu": "Funga menyu",
+    "background": "Mandhari ya tovuti",
+    "stores": "Maduka"
+  },
+  "ambiance": {
+    "label": "Mandhari",
+    "background": "Mandhari ya tovuti",
+    "changeAria": "Mandhari ya tovuti: {name}. Badilisha",
+    "atelier": {
+      "label": "Karakana",
+      "hint": "Picha ya eneo la ujenzi"
+    },
+    "minuit": {
+      "label": "Usiku wa manane",
+      "hint": "Buluu ya usiku ya kisasa"
+    },
+    "ivoire": {
+      "label": "Pembe ya ndovu",
+      "hint": "Angavu na yenye joto"
+    },
+    "gris": {
+      "label": "Kijivu chepesi",
+      "hint": "Angavu na sahili"
+    }
+  },
+  "categories": {
+    "electromenager": {
+      "label": "Vifaa vya Umeme vya Nyumbani",
+      "blurb": "Ubaridi, upishi na starehe"
+    },
+    "plomberie": {
+      "label": "Mabomba",
+      "blurb": "Mirija na viungio"
+    },
+    "electricite": {
+      "label": "Umeme",
+      "blurb": "Nyaya na taa"
+    },
+    "peinture": {
+      "label": "Rangi na Kemikali",
+      "blurb": "Umaliziaji na plasta"
+    },
+    "outillage": {
+      "label": "Zana",
+      "blurb": "Za mkono na za umeme"
+    },
+    "quincaillerie": {
+      "label": "Vifaa vya Chuma",
+      "blurb": "Skrubu na vyuma"
+    },
+    "materiaux": {
+      "label": "Vifaa vya Ujenzi",
+      "blurb": "Ujenzi mkuu na umaliziaji"
+    },
+    "sanitaire": {
+      "label": "Vyoo na Bafu",
+      "blurb": "Vifaa na mabomba ya maji"
+    }
+  },
+  "hero": {
+    "badge": "Vifaa · Ujenzi · Daloa",
+    "tagline": "Duka Kuu la Vifaa — Kila Kitu cha Ujenzi",
+    "description": "Kutoka msingi wa kwanza hadi rangi ya mwisho: vifaa vya umeme, mabomba, umeme, zana na vifaa — vyote chini ya paa moja, kwa bei nzuri.",
+    "exploreCatalogue": "Chunguza katalogi",
+    "findMaterial": "Tafuta vifaa vyangu",
+    "stats": {
+      "rayonsLabel": "Idara maalum",
+      "referencesLabel": "Bidhaa zilizopo",
+      "openLabel": "Imefunguliwa Daloa",
+      "openValue": "7/7"
+    },
+    "hours": "Imefunguliwa siku 7 kwa wiki · 7:30 – 18:30",
+    "location": "Daloa · Côte d'Ivoire",
+    "scroll": "Teleza",
+    "scrollAria": "Teleza chini",
+    "marquee": [
+      "Saruji",
+      "Rangi",
+      "Mabomba",
+      "Umeme",
+      "Zana",
+      "Vigae",
+      "Vyoo na Bafu",
+      "Vifaa vya Chuma"
+    ]
+  },
+  "quiz": {
+    "badge": "Ushauri wa Haraka · sekunde 60",
+    "title": "Pata vifaa vyako bora",
+    "subtitle": "Maswali matatu, pendekezo moja maalum. Kama mshauri dukani, lakini mtandaoni.",
+    "questionTag": "Swali",
+    "step": "{current}/{total}",
+    "previous": "Iliyotangulia",
+    "recommendationTag": "Pendekezo lako",
+    "budgetAdvised": "Bajeti inayoshauriwa",
+    "summary": "Mradi: {project} · Bajeti: {budget} F CFA",
+    "viewCatalogue": "Tazama katika katalogi",
+    "restart": "Anza upya",
+    "questions": {
+      "projet": {
+        "title": "Mradi wako ni upi?",
+        "hint": "Tuambie unafanyia kazi nini.",
+        "options": {
+          "construction": "Ujenzi mpya",
+          "renovation": "Ukarabati",
+          "plomberie": "Mabomba",
+          "electricite": "Umeme",
+          "decoration": "Upambaji na rangi",
+          "bricolage": "Kazi ndogo za mkono"
+        }
+      },
+      "besoin": {
+        "title": "Unatafuta bidhaa zipi?",
+        "hint": "Chagua kundi — au turuhusu tuamue.",
+        "options": {
+          "outillage": "Zana",
+          "materiaux": "Vifaa",
+          "electromenager": "Vifaa vya Umeme",
+          "sanitaire": "Vyoo na Bafu",
+          "quincaillerie": "Vifaa vya Chuma",
+          "surprise": "Nishangaze"
+        }
+      },
+      "budget": {
+        "title": "Bajeti yako ni kiasi gani?",
+        "hint": "Kwa faranga za CFA, ili kurekebisha mapendekezo yetu.",
+        "options": {
+          "low": "Chini ya 25,000",
+          "mid": "25,000 – 100,000",
+          "high": "100,000 – 500,000",
+          "premium": "Zaidi ya 500,000"
+        }
+      }
+    },
+    "packs": {
+      "surpriseTagline": "Uteuzi wetu tunaoupenda, uliochaguliwa na wataalamu wetu.",
+      "construction": {
+        "kit": "Pakiti ya Ujenzi Mkuu",
+        "tagline": "Kila kitu cha kujenga kuta zako na kumimina misingi."
+      },
+      "renovation": {
+        "kit": "Pakiti ya Ukarabati",
+        "tagline": "Karabati vyote, kutoka sakafu hadi dari."
+      },
+      "plomberie": {
+        "kit": "Pakiti ya Mabomba",
+        "tagline": "Mifumo ya maji isiyovuja na ya kudumu."
+      },
+      "electricite": {
+        "kit": "Pakiti ya Umeme",
+        "tagline": "Usakinishaji salama, kwa viwango."
+      },
+      "decoration": {
+        "kit": "Pakiti ya Umaliziaji",
+        "tagline": "Mguso wa mwisho unaobadilisha kila kitu."
+      },
+      "bricolage": {
+        "kit": "Pakiti ya Fundi wa Nyumbani",
+        "tagline": "Mahitaji muhimu daima karibu nawe."
+      }
+    }
+  },
+  "catalogue": {
+    "tag": "Katalogi yetu",
+    "title": "Ujenzi wote, idara kwa idara",
+    "searchPlaceholder": "Tafuta bidhaa…",
+    "searchAria": "Tafuta bidhaa",
+    "all": "Zote",
+    "imageSoon": "picha inakuja hivi karibuni",
+    "price": "Bei",
+    "order": "Agiza",
+    "count": "{count, plural, =0{Hakuna bidhaa} one{bidhaa #} other{bidhaa #}}",
+    "resetFilters": "Weka upya vichujio",
+    "reset": "weka upya",
+    "loadError": {
+      "title": "Katalogi haipatikani kwa muda",
+      "body": "Kagua muunganisho wako na ujaribu tena."
+    },
+    "empty": {
+      "title": "Hakuna bidhaa iliyopatikana",
+      "body": "Jaribu neno lingine au kundi lingine."
+    },
+    "ai": {
+      "title": "Msaidizi wa AI",
+      "subtitle": "Eleza mradi wako au onyesha picha",
+      "placeholder": "Mf.: «vifaa vya kuweka vigae bafu la mita za mraba 8»",
+      "describeAria": "Eleza unachohitaji",
+      "ask": "Uliza AI",
+      "searching": "Inatafuta…",
+      "photo": "📷 Picha",
+      "photoTitle": "Piga au pakia picha",
+      "spinner": "Gemini inatafuta katika katalogi…",
+      "searchFailed": "Utafutaji wa AI umeshindwa.",
+      "imageFailed": "Uchambuzi wa picha umeshindwa.",
+      "yourPhoto": "picha yako",
+      "quoted": "«{query}»",
+      "suggestedCount": "{count, plural, =0{Hakuna bidhaa inayolingana} one{bidhaa # iliyopendekezwa na AI} other{bidhaa # zilizopendekezwa na AI}}",
+      "forLabel": "kwa {label}",
+      "previewAlt": "Hakikisho",
+      "clear": "Futa",
+      "noMatchTitle": "Hakuna inayolingana katika katalogi yetu",
+      "noMatchBody": "Andika upya ombi lako, au <quote>omba kadirio</quote> — tunaweza kupata bidhaa hiyo."
+    }
+  },
+  "testimonials": {
+    "tag": "Wanatuamini",
+    "title": "Neno kwa wateja wetu",
+    "subtitle": "Mafundi, wakandarasi na watu binafsi: wanajenga na Solid-BTP.",
+    "ratingAria": "Wastani wa ukadiriaji {rating} kati ya 5",
+    "verifiedCount": "maoni {count} yaliyothibitishwa",
+    "fiveStarsAria": "nyota 5 kati ya 5",
+    "verified": "Imethibitishwa",
+    "footer": "Mteja wa Solid-BTP? <link>Shiriki uzoefu wako →</link>",
+    "reviews": [
+      {
+        "name": "Koffi Aristide",
+        "role": "Mkandarasi wa ujenzi, Daloa",
+        "quote": "Kwa miradi yangu, Solid-BTP imekuwa muhimu sana. Bidhaa zinapatikana daima, ushauri sahihi na bei za haki. Naokoa muda mwingi sana."
+      },
+      {
+        "name": "Mariam Touré",
+        "role": "Mtu binafsi, ukarabati",
+        "quote": "Nilirekebisha jiko langu lote kwa msaada wao. Timu iliniongoza kutoka vigae hadi rangi. Matokeo bora na karibu ya joto."
+      },
+      {
+        "name": "Jean-Baptiste N'Guessan",
+        "role": "Fundi umeme wa kujitegemea",
+        "quote": "Nyaya, swichi za umeme, taa: vyote vipo, kwa viwango. Ni duka langu la vifaa la kuaminika tangu lilipofunguliwa."
+      }
+    ]
+  },
+  "map": {
+    "tag": "Tutafute",
+    "title": "Katikati ya Daloa",
+    "subtitle": "Tutembelee dukani: wataalamu wetu watakukaribisha na kukushauri papo hapo.",
+    "iframeTitle": "Eneo la Solid-BTP mjini Daloa",
+    "openRoute": "Fungua njia",
+    "info": {
+      "addressLabel": "Anwani",
+      "addressValue": "Eneo la biashara, Daloa, Haut-Sassandra, Côte d'Ivoire",
+      "phoneLabel": "Simu",
+      "hoursLabel": "Saa za kazi",
+      "hoursValue": "Siku 7 kwa wiki · Jumatatu – Jumapili · 7:30 – 18:30",
+      "emailLabel": "Barua pepe"
+    }
+  },
+  "contact": {
+    "tag": "Kadirio na agizo",
+    "title": "Omba kadirio lako",
+    "intro": "Tuambie unachohitaji na lini. Huna uhakika wa istilahi? <strong>Tutakusaidia kuliandika</strong> — kwa sauti au kwa mapendekezo.",
+    "steps": [
+      {
+        "title": "Eleza unachohitaji",
+        "desc": "Bidhaa, idadi, tarehe unayotaka."
+      },
+      {
+        "title": "Pokea pendekezo",
+        "desc": "Upatikanaji na bei bora."
+      },
+      {
+        "title": "Chukua dukani",
+        "desc": "Imeandaliwa na iko tayari Daloa."
+      }
+    ],
+    "reassureTitle": "Mshauri atakujibu",
+    "reassureBody": "Jibu ndani ya saa 24 · Siku 7 kwa wiki · Daloa, Côte d'Ivoire",
+    "atelierKicker": "Karakana yetu",
+    "atelierTitle": "Ushauri na vifaa chini ya paa moja",
+    "atelierAlt": "Karakana ya Solid-BTP",
+    "doneTitle": "Ombi limetumwa!",
+    "doneBody": "Asante. Timu yetu itawasiliana nawe hivi karibuni na kadirio lako.",
+    "newRequest": "Ombi jipya",
+    "nameLabel": "Jina kamili *",
+    "namePlaceholder": "Jina lako",
+    "emailLabel": "Barua pepe *",
+    "emailPlaceholder": "vous@email.com",
+    "phoneLabel": "Simu *",
+    "phonePlaceholder": "+225 ...",
+    "dateLabel": "Tarehe unayotaka",
+    "messageLabel": "Ujumbe wako",
+    "messagePlaceholder": "Bidhaa, idadi, maelezo kuhusu kazi… au tamka kwa kipaza sauti 🎙️",
+    "voiceListening": "🎤 Inasikiliza…",
+    "voicePrompt": "🎤 Tamka kwa sauti",
+    "voiceStartAria": "Anza kuandika kwa sauti",
+    "voiceStopAria": "Simamisha kuandika kwa sauti",
+    "suggestMatching": "Bidhaa zinazolingana — bofya kuongeza",
+    "suggestPopular": "Bidhaa maarufu",
+    "suggestStart": "Ili kuanza",
+    "submit": "Tuma ombi langu",
+    "submitting": "Inatuma…",
+    "footnote": "Jibu ndani ya saa 24 · Imefunguliwa siku 7 kwa wiki · Daloa, Côte d'Ivoire",
+    "sendFailed": "Kutuma kumeshindwa.",
+    "genericError": "Hitilafu imetokea.",
+    "starters": [
+      {
+        "label": "Ujenzi mpya",
+        "text": "Ninaanza ujenzi mpya. Hivi ndivyo ninavyohitaji:"
+      },
+      {
+        "label": "Ukarabati",
+        "text": "Ninakarabati eneo. Orodha ya bidhaa zinazohitajika:"
+      },
+      {
+        "label": "Mabomba",
+        "text": "Mradi wa mabomba. Ninahitaji:"
+      },
+      {
+        "label": "Rangi",
+        "text": "Kazi za rangi. Nyuso na mahitaji:"
+      }
+    ],
+    "storeLabel": "Duka husika",
+    "storePlaceholder": "Chagua duka",
+    "storeHint": "Ombi lako litatumwa kwa duka hili."
+  },
+  "footer": {
+    "blurb": "Duka Kuu la Vifaa — Kila Kitu cha Ujenzi. Mshirika wako wa vifaa, zana na vifaa mjini Daloa, Côte d'Ivoire.",
+    "ratingAria": "Imekadiriwa nyota 5 kati ya 5",
+    "rayons": "Idara",
+    "links": "Viungo",
+    "contact": "Mawasiliano",
+    "linkAdvice": "Ushauri wa Haraka",
+    "linkReviews": "Maoni ya wateja",
+    "linkFindUs": "Tutafute",
+    "linkQuote": "Omba kadirio",
+    "linkAdmin": "Eneo la msimamizi",
+    "addressLabel": "Anwani",
+    "addressValue": "Eneo la biashara, Daloa — Côte d'Ivoire",
+    "phoneLabel": "Simu",
+    "emailLabel": "Barua pepe",
+    "hoursLabel": "Saa za kazi",
+    "hoursValue": "Siku 7 kwa wiki · Jumatatu – Jumapili · 7:30 – 18:30",
+    "copyright": "© {year} Solid-BTP · Daloa, Côte d'Ivoire",
+    "slogan": "Duka Kuu la Vifaa · Kila Kitu cha Ujenzi",
+    "backToTop": "↑ Juu"
+  },
+  "scrollTop": {
+    "aria": "Rudi juu ya ukurasa"
+  },
+  "login": {
+    "logoAlt": "Solid-BTP — Duka Kuu la Vifaa",
+    "kicker": "Ufikiaji uliozuiliwa",
+    "title": "Eneo la msimamizi",
+    "subtitle": "Ingia ili kusimamia katalogi.",
+    "username": "Jina la mtumiaji",
+    "password": "Nenosiri",
+    "submit": "Ingia",
+    "submitting": "Inaingia…",
+    "backToSite": "← Rudi kwenye tovuti",
+    "failed": "Imeshindwa kuingia.",
+    "error": "Hitilafu ya kuingia."
+  },
+  "admin": {
+    "badge": "Msimamizi",
+    "rolePrincipalShort": "Msimamizi mkuu",
+    "roleSubShort": "Msimamizi msaidizi",
+    "viewSite": "Tazama tovuti ↗",
+    "logout": "Toka",
+    "dashboard": "Dashibodi",
+    "greeting": "Habari, {name}",
+    "kpi": {
+      "articles": "Bidhaa zilizochapishwa",
+      "orders": "Maombi ya kadirio",
+      "team": "Akaunti za timu",
+      "value": "Thamani ya katalogi"
+    },
+    "tabs": {
+      "catalogue": "Katalogi",
+      "quick": "Ongeza haraka",
+      "aiText": "Utafutaji wa AI",
+      "aiPhoto": "Picha ya AI",
+      "team": "Timu",
+      "orders": "Maombi",
+      "stores": "Maduka"
+    },
+    "form": {
+      "editTitle": "Hariri bidhaa",
+      "newTitle": "Bidhaa mpya",
+      "name": "Jina *",
+      "description": "Maelezo",
+      "category": "Kundi *",
+      "price": "Bei (F CFA)",
+      "photo": "Picha ya bidhaa",
+      "previewAlt": "Hakikisho la bidhaa",
+      "replace": "Badilisha",
+      "remove": "Ondoa",
+      "browse": "Vinjari picha",
+      "browseHint": "Kutoka kwa PC au simu yako · JPG, PNG, WEBP",
+      "uploading": "Inapakia…",
+      "hideUrl": "− Ficha URL",
+      "showUrl": "+ Au bandika URL ya picha",
+      "save": "Hifadhi",
+      "create": "Ongeza",
+      "cancel": "Ghairi",
+      "uploadFailed": "Kupakia kumeshindwa."
+    },
+    "list": {
+      "empty": "Hakuna bidhaa. Ongeza moja au tumia «Ongeza haraka».",
+      "edit": "Hariri",
+      "delete": "Futa",
+      "confirmDelete": "Futa bidhaa hii?"
+    },
+    "toast": {
+      "articleUpdated": "Bidhaa imesasishwa.",
+      "articleAdded": "Bidhaa imeongezwa.",
+      "saveError": "Hitilafu wakati wa kuhifadhi.",
+      "articleDeleted": "Bidhaa imefutwa.",
+      "addedToCatalogue": "«{name}» imeongezwa kwenye katalogi.",
+      "saveFailed": "Kuhifadhi kumeshindwa.",
+      "bulkAdded": "{count, plural, one{bidhaa # imeongezwa kwenye katalogi.} other{bidhaa # zimeongezwa kwenye katalogi.}}",
+      "subAdminCreated": "Msimamizi msaidizi ameundwa.",
+      "genericError": "Hitilafu.",
+      "accountDeleted": "Akaunti imefutwa.",
+      "deleteFailed": "Imeshindwa kufuta.",
+      "storeAdded": "Duka limeongezwa.",
+      "storeUpdated": "Duka limesasishwa.",
+      "storeDeleted": "Duka limefutwa.",
+      "storeError": "Imeshindwa kuhifadhi duka."
+    },
+    "quick": {
+      "title": "Ongeza haraka",
+      "subtitle": "Bidhaa {count} za kawaida tayari kuchapishwa. Bofya moja huziongeza kwenye katalogi.",
+      "add": "+ Ongeza"
+    },
+    "aiText": {
+      "title": "Utafutaji wa AI",
+      "subtitle": "Eleza hitaji kwa lugha ya kawaida — AI (Gemini) inapendekeza bidhaa za kuchapisha.",
+      "label": "Hitaji lako",
+      "placeholder": "Mf.: «vifaa vya kupaka rangi tena chumba cha mita za mraba 12, kuta na dari»",
+      "ask": "Uliza AI",
+      "searching": "Inatafuta…",
+      "spinner": "Gemini inachambua ombi lako…",
+      "noResults": "Hakuna pendekezo kwa ombi hili. Andika upya kwa usahihi zaidi.",
+      "searchFailed": "Utafutaji wa AI umeshindwa.",
+      "added": "Imeongezwa ✓",
+      "add": "+ Ongeza"
+    },
+    "aiPhoto": {
+      "title": "Picha ya AI",
+      "subtitle": "Piga au pakia picha: AI hutambua bidhaa zinazoonekana na kukupendekezea ili uthibitishe kabla ya kuchapisha.",
+      "label": "Picha ya bidhaa (au bidhaa)",
+      "previewAlt": "Hakikisho",
+      "analyze": "Chambua picha",
+      "analyzing": "Inachambua…",
+      "reset": "Weka upya",
+      "spinner": "Gemini inachambua picha…",
+      "noResults": "Hakuna bidhaa iliyotambuliwa kwenye picha. Jaribu picha iliyo wazi zaidi.",
+      "imageFailed": "Uchambuzi wa picha umeshindwa.",
+      "detected": "{count, plural, one{bidhaa # imetambuliwa — teua za kuchapisha} other{bidhaa # zimetambuliwa — teua za kuchapisha}}",
+      "addSelection": "Ongeza uteuzi ({count})",
+      "added": "imeongezwa ✓"
+    },
+    "team": {
+      "addTitle": "Ongeza msimamizi msaidizi",
+      "username": "Jina la mtumiaji",
+      "password": "Nenosiri (angalau 6)",
+      "createAccount": "Unda akaunti",
+      "onlyPrincipal": "Ni msimamizi mkuu pekee anayeweza kusimamia akaunti.",
+      "rolePrincipal": "Msimamizi mkuu",
+      "roleSub": "Msimamizi msaidizi",
+      "you": "· wewe",
+      "delete": "Futa",
+      "protected": "imelindwa",
+      "confirmDelete": "Futa akaunti hii ya msimamizi?"
+    },
+    "orders": {
+      "empty": "Hakuna maombi ya kadirio kwa sasa.",
+      "storeTag": "Duka",
+      "noStore": "Haijabainishwa"
+    },
+    "stores": {
+      "title": "Maduka",
+      "subtitle": "Simamia maduka ya Solid-BTP.",
+      "addTitle": "Ongeza duka",
+      "editTitle": "Hariri duka",
+      "onlyPrincipal": "Ni msimamizi mkuu pekee anayeweza kuongeza au kuhariri duka.",
+      "empty": "Hakuna maduka bado.",
+      "name": "Jina la duka",
+      "city": "Jiji",
+      "address": "Anwani",
+      "phone": "Simu",
+      "email": "Barua pepe",
+      "hours": "Saa za kazi",
+      "lat": "Latitudo",
+      "lon": "Longitudo",
+      "coordsHint": "Viwianishi vya GPS (hiari) — kuonyesha ramani.",
+      "note": "Dokezo (hiari)",
+      "create": "Unda duka",
+      "save": "Hifadhi",
+      "cancel": "Ghairi",
+      "edit": "Hariri",
+      "delete": "Futa",
+      "confirmDelete": "Futa duka hili?"
+    }
+  },
+  "api": {
+    "unauthorized": "Hauruhusiwi.",
+    "aiDescribe": "Eleza unachotafuta.",
+    "imageMissing": "Sehemu ya «picha» haipo.",
+    "imageTooLarge": "Picha ni kubwa mno (kiwango cha juu MB 5).",
+    "imageFormat": "Muundo wa picha hauungwi mkono.",
+    "imageNone": "Hakuna picha iliyotolewa.",
+    "imageUnreadable": "Picha haisomeki.",
+    "aiConfig": "Huduma ya AI haijawekwa.",
+    "aiUnavailable": "Huduma ya AI haipatikani kwa muda.",
+    "aiUnexpected": "Hitilafu isiyotarajiwa.",
+    "rateLimited": "Maombi mengi mno. Tafadhali subiri kidogo kabla ya kujaribu tena.",
+    "loginRequired": "Vitambulisho vinahitajika.",
+    "loginInvalid": "Jina la mtumiaji au nenosiri si sahihi.",
+    "articleFields": "Jina na kundi vinahitajika.",
+    "articleNotFound": "Bidhaa haikupatikana.",
+    "adminOnlyAdd": "Ni msimamizi mkuu pekee anayeweza kuongeza akaunti.",
+    "adminFields": "Jina la mtumiaji na nenosiri (angalau herufi 6) vinahitajika.",
+    "adminExists": "Jina hili la mtumiaji tayari lipo.",
+    "subCannotDelete": "Msimamizi msaidizi hawezi kufuta akaunti.",
+    "accountNotFound": "Akaunti haikupatikana.",
+    "principalProtected": "Msimamizi mkuu hawezi kufutwa.",
+    "orderFields": "Jina, barua pepe na simu vinahitajika.",
+    "uploadMultipart": "Muundo unaotarajiwa: multipart/form-data.",
+    "uploadFormat": "Muundo hauungwi mkono (JPG, PNG, WEBP au GIF).",
+    "uploadFailed": "Kupakia kumeshindwa.",
+    "storeAdminOnly": "Ni msimamizi mkuu pekee anayeweza kusimamia maduka.",
+    "storeFields": "Jina la duka na jiji vinahitajika.",
+    "storeNotFound": "Duka halikupatikana."
+  },
+  "stores": {
+    "tag": "Maduka yetu",
+    "title": "Duka la Solid-BTP lililo karibu nawe",
+    "subtitle": "Maduka kadhaa kukuhudumia kote Côte d'Ivoire. Chagua lako.",
+    "addressLabel": "Anwani",
+    "phoneLabel": "Simu",
+    "hoursLabel": "Saa za kazi",
+    "emailLabel": "Barua pepe",
+    "directions": "Fungua njia",
+    "mapTitle": "Ramani — {name}",
+    "empty": "Maduka mapya yanakuja hivi karibuni. Rudi tena!",
+    "selectPrompt": "Chagua duka ili kuliona kwenye ramani."
+  }
+}

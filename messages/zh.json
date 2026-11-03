@@ -1,0 +1,573 @@
+{
+  "metadata": {
+    "title": "Solid-BTP — 超级五金店 · 建筑所需，一应俱全",
+    "description": "达洛亚的 Solid-BTP：五金、家电、水暖、电气、油漆、工具和建筑材料。建筑所需，一应俱全，价格公道。"
+  },
+  "common": {
+    "reset": "重置",
+    "retry": "重试",
+    "clear": "清除",
+    "add": "添加",
+    "cancel": "取消",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "loading": "加载中…",
+    "imageTooLarge": "图片过大（上限 5 MB）。",
+    "aiUnavailable": "AI 服务不可用，请重试。",
+    "logoAlt": "Solid-BTP — 超级五金店，建筑所需一应俱全"
+  },
+  "languageSwitcher": {
+    "label": "语言",
+    "change": "切换语言（当前：{language}）"
+  },
+  "nav": {
+    "homeAria": "Solid-BTP，首页",
+    "catalogue": "商品目录",
+    "advice": "快速建议",
+    "reviews": "评价",
+    "findUs": "找到我们",
+    "contact": "联系",
+    "adminSpace": "管理后台",
+    "freeQuote": "免费报价",
+    "requestQuote": "申请报价",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "background": "网站背景",
+    "stores": "门店"
+  },
+  "ambiance": {
+    "label": "主题",
+    "background": "网站背景",
+    "changeAria": "网站主题：{name}。点击切换",
+    "atelier": {
+      "label": "工坊",
+      "hint": "工地照片"
+    },
+    "minuit": {
+      "label": "午夜",
+      "hint": "未来感夜蓝"
+    },
+    "ivoire": {
+      "label": "象牙白",
+      "hint": "明亮温暖"
+    },
+    "gris": {
+      "label": "浅灰",
+      "hint": "明亮简约"
+    }
+  },
+  "categories": {
+    "electromenager": {
+      "label": "家用电器",
+      "blurb": "制冷、烹饪与舒适"
+    },
+    "plomberie": {
+      "label": "水暖管道",
+      "blurb": "管材与接头"
+    },
+    "electricite": {
+      "label": "电气",
+      "blurb": "布线与照明"
+    },
+    "peinture": {
+      "label": "油漆与化工用品",
+      "blurb": "饰面与腻子"
+    },
+    "outillage": {
+      "label": "工具",
+      "blurb": "手动与电动"
+    },
+    "quincaillerie": {
+      "label": "五金",
+      "blurb": "螺丝与金属件"
+    },
+    "materiaux": {
+      "label": "建筑材料",
+      "blurb": "主体与装修工程"
+    },
+    "sanitaire": {
+      "label": "卫浴洁具",
+      "blurb": "设备与龙头"
+    }
+  },
+  "hero": {
+    "badge": "五金 · 建筑 · 达洛亚",
+    "tagline": "超级五金店 — 建筑所需，一应俱全",
+    "description": "从第一道地基到最后一层油漆：家电、水暖、电气、工具与材料——同在一个屋檐下，价格公道。",
+    "exploreCatalogue": "浏览商品目录",
+    "findMaterial": "找到我的材料",
+    "stats": {
+      "rayonsLabel": "专业品类",
+      "referencesLabel": "在库商品",
+      "openLabel": "达洛亚营业中",
+      "openValue": "全周无休"
+    },
+    "hours": "全周无休 · 7:30 – 18:30",
+    "location": "达洛亚 · 科特迪瓦",
+    "scroll": "向下滚动",
+    "scrollAria": "向下滚动",
+    "marquee": [
+      "水泥",
+      "油漆",
+      "水暖管道",
+      "电气",
+      "工具",
+      "瓷砖",
+      "卫浴洁具",
+      "五金"
+    ]
+  },
+  "quiz": {
+    "badge": "快速建议 · 60 秒",
+    "title": "找到最适合您的材料",
+    "subtitle": "三个问题，一份量身定制的建议。如同店内顾问，只是在线上。",
+    "questionTag": "问题",
+    "step": "{current}/{total}",
+    "previous": "上一步",
+    "recommendationTag": "为您推荐",
+    "budgetAdvised": "建议预算",
+    "summary": "项目：{project} · 预算：{budget} F CFA",
+    "viewCatalogue": "在目录中查看",
+    "restart": "重新开始",
+    "questions": {
+      "projet": {
+        "title": "您的项目是什么？",
+        "hint": "告诉我们您在做什么。",
+        "options": {
+          "construction": "新建",
+          "renovation": "翻新",
+          "plomberie": "水暖管道",
+          "electricite": "电气",
+          "decoration": "装饰与油漆",
+          "bricolage": "小型 DIY"
+        }
+      },
+      "besoin": {
+        "title": "您在找哪些商品？",
+        "hint": "选择一个类别——或交给我们决定。",
+        "options": {
+          "outillage": "工具",
+          "materiaux": "材料",
+          "electromenager": "家用电器",
+          "sanitaire": "卫浴洁具",
+          "quincaillerie": "五金",
+          "surprise": "给我惊喜"
+        }
+      },
+      "budget": {
+        "title": "您的预算是多少？",
+        "hint": "请以非洲法郎填写，以便我们调整推荐。",
+        "options": {
+          "low": "少于 25,000",
+          "mid": "25,000 – 100,000",
+          "high": "100,000 – 500,000",
+          "premium": "超过 500,000"
+        }
+      }
+    },
+    "packs": {
+      "surpriseTagline": "我们五金师傅精心挑选的心头好。",
+      "construction": {
+        "kit": "主体工程套装",
+        "tagline": "砌墙浇筑地基所需的一切。"
+      },
+      "renovation": {
+        "kit": "翻新套装",
+        "tagline": "从地面到天花，焕然一新。"
+      },
+      "plomberie": {
+        "kit": "水暖套装",
+        "tagline": "密封耐用的供排水系统。"
+      },
+      "electricite": {
+        "kit": "电气套装",
+        "tagline": "符合规范的安全安装。"
+      },
+      "decoration": {
+        "kit": "饰面套装",
+        "tagline": "改变一切的最后一笔。"
+      },
+      "bricolage": {
+        "kit": "家居达人套装",
+        "tagline": "必备之物，随手可得。"
+      }
+    }
+  },
+  "catalogue": {
+    "tag": "我们的商品目录",
+    "title": "整个建筑行业，按品类逐一呈现",
+    "searchPlaceholder": "搜索商品…",
+    "searchAria": "搜索商品",
+    "all": "全部",
+    "imageSoon": "图片即将上线",
+    "price": "价格",
+    "order": "下单",
+    "count": "{count, plural, =0{没有商品} other{# 件商品}}",
+    "resetFilters": "重置筛选",
+    "reset": "重置",
+    "loadError": {
+      "title": "商品目录暂时无法使用",
+      "body": "请检查您的网络连接并重试。"
+    },
+    "empty": {
+      "title": "未找到商品",
+      "body": "请尝试其他关键词或其他类别。"
+    },
+    "ai": {
+      "title": "AI 助手",
+      "subtitle": "描述您的项目或出示一张照片",
+      "placeholder": "例如：「给一间 8 平方米的浴室铺砖所需的材料」",
+      "describeAria": "描述您的需求",
+      "ask": "询问 AI",
+      "searching": "搜索中…",
+      "photo": "📷 照片",
+      "photoTitle": "拍照或上传照片",
+      "spinner": "Gemini 正在目录中搜索…",
+      "searchFailed": "AI 搜索失败。",
+      "imageFailed": "图片分析失败。",
+      "yourPhoto": "您的照片",
+      "quoted": "「{query}」",
+      "suggestedCount": "{count, plural, =0{没有匹配的商品} other{AI 推荐的 # 件商品}}",
+      "forLabel": "针对 {label}",
+      "previewAlt": "预览",
+      "clear": "清除",
+      "noMatchTitle": "在我们的目录中没有匹配项",
+      "noMatchBody": "请重新表述您的需求，或 <quote>申请报价</quote> —— 我们可以为您调货。"
+    }
+  },
+  "testimonials": {
+    "tag": "他们信赖我们",
+    "title": "听听我们客户的声音",
+    "subtitle": "工匠、承包商和个人客户：他们都与 Solid-BTP 一同建造。",
+    "ratingAria": "平均评分 5 分中的 {rating} 分",
+    "verifiedCount": "{count} 条已验证评价",
+    "fiveStarsAria": "5 星满分中的 5 星",
+    "verified": "已验证",
+    "footer": "您是 Solid-BTP 的客户吗？<link>分享您的体验 →</link>",
+    "reviews": [
+      {
+        "name": "Koffi Aristide",
+        "role": "建筑承包商，达洛亚",
+        "quote": "对我的工地来说，Solid-BTP 已不可或缺。库存常备、建议精准、价格公道，为我省下大量时间。"
+      },
+      {
+        "name": "Mariam Touré",
+        "role": "个人客户，翻新",
+        "quote": "多亏了他们，我重新装修了整个厨房。从瓷砖到油漆，团队一路指导我。成果无可挑剔，接待也很热情。"
+      },
+      {
+        "name": "Jean-Baptiste N'Guessan",
+        "role": "独立电工",
+        "quote": "电缆、断路器、灯具：应有尽有，符合规范。开业以来，这就是我的首选五金店。"
+      }
+    ]
+  },
+  "map": {
+    "tag": "找到我们",
+    "title": "坐落于达洛亚中心",
+    "subtitle": "欢迎到店：我们的五金师傅在现场迎接您并为您出谋划策。",
+    "iframeTitle": "Solid-BTP 在达洛亚的位置",
+    "openRoute": "打开路线",
+    "info": {
+      "addressLabel": "地址",
+      "addressValue": "商业区，达洛亚，上桑桑德拉，科特迪瓦",
+      "phoneLabel": "电话",
+      "hoursLabel": "营业时间",
+      "hoursValue": "全周无休 · 周一至周日 · 7:30 – 18:30",
+      "emailLabel": "电子邮箱"
+    }
+  },
+  "contact": {
+    "tag": "报价与下单",
+    "title": "申请您的报价",
+    "intro": "告诉我们您需要什么、何时需要。不确定专业术语？<strong>我们帮您写</strong> —— 用语音或借助建议。",
+    "steps": [
+      {
+        "title": "描述您的需求",
+        "desc": "商品、数量、期望日期。"
+      },
+      {
+        "title": "收到方案",
+        "desc": "供货情况与最优价格。"
+      },
+      {
+        "title": "到店自取",
+        "desc": "在达洛亚备好待取。"
+      }
+    ],
+    "reassureTitle": "顾问将回复您",
+    "reassureBody": "24 小时内回复 · 全周无休 · 达洛亚，科特迪瓦",
+    "atelierKicker": "我们的工坊",
+    "atelierTitle": "咨询与材料，同在一个屋檐下",
+    "atelierAlt": "Solid-BTP 工坊",
+    "doneTitle": "请求已发送！",
+    "doneBody": "谢谢。我们的团队将很快带着您的报价与您联系。",
+    "newRequest": "新的请求",
+    "nameLabel": "全名 *",
+    "namePlaceholder": "您的姓名",
+    "emailLabel": "电子邮箱 *",
+    "emailPlaceholder": "vous@email.com",
+    "phoneLabel": "电话 *",
+    "phonePlaceholder": "+225 ...",
+    "dateLabel": "期望日期",
+    "messageLabel": "您的留言",
+    "messagePlaceholder": "商品、数量、工地详情…… 或用麦克风口述 🎙️",
+    "voiceListening": "🎤 正在聆听…",
+    "voicePrompt": "🎤 语音口述",
+    "voiceStartAria": "开始语音口述",
+    "voiceStopAria": "停止口述",
+    "suggestMatching": "匹配的商品 —— 点击添加",
+    "suggestPopular": "热门商品",
+    "suggestStart": "从这里开始",
+    "submit": "发送我的请求",
+    "submitting": "发送中…",
+    "footnote": "24 小时内回复 · 全周无休 · 达洛亚，科特迪瓦",
+    "sendFailed": "发送失败。",
+    "genericError": "发生了错误。",
+    "starters": [
+      {
+        "label": "新建",
+        "text": "我要开始新建工程。以下是我所需要的："
+      },
+      {
+        "label": "翻新",
+        "text": "我在翻新一个空间。所需商品清单："
+      },
+      {
+        "label": "水暖管道",
+        "text": "水暖项目。我需要："
+      },
+      {
+        "label": "油漆",
+        "text": "油漆工程。面积与需求："
+      }
+    ],
+    "storeLabel": "目标门店",
+    "storePlaceholder": "选择门店",
+    "storeHint": "您的请求将发送至该门店。"
+  },
+  "footer": {
+    "blurb": "超级五金店 —— 建筑所需，一应俱全。您在达洛亚（科特迪瓦）的材料、工具与设备伙伴。",
+    "ratingAria": "5 星满分中的 5 星评分",
+    "rayons": "品类",
+    "links": "链接",
+    "contact": "联系",
+    "linkAdvice": "快速建议",
+    "linkReviews": "客户评价",
+    "linkFindUs": "找到我们",
+    "linkQuote": "申请报价",
+    "linkAdmin": "管理后台",
+    "addressLabel": "地址",
+    "addressValue": "商业区，达洛亚 —— 科特迪瓦",
+    "phoneLabel": "电话",
+    "emailLabel": "电子邮箱",
+    "hoursLabel": "营业时间",
+    "hoursValue": "全周无休 · 周一至周日 · 7:30 – 18:30",
+    "copyright": "© {year} Solid-BTP · 达洛亚，科特迪瓦",
+    "slogan": "超级五金店 · 建筑所需，一应俱全",
+    "backToTop": "↑ 顶部"
+  },
+  "scrollTop": {
+    "aria": "返回页面顶部"
+  },
+  "login": {
+    "logoAlt": "Solid-BTP — 超级五金店",
+    "kicker": "仅限授权访问",
+    "title": "管理后台",
+    "subtitle": "登录以管理商品目录。",
+    "username": "用户名",
+    "password": "密码",
+    "submit": "登录",
+    "submitting": "登录中…",
+    "backToSite": "← 返回网站",
+    "failed": "无法登录。",
+    "error": "登录出错。"
+  },
+  "admin": {
+    "badge": "管理",
+    "rolePrincipalShort": "主管理员",
+    "roleSubShort": "子管理员",
+    "viewSite": "查看网站 ↗",
+    "logout": "退出登录",
+    "dashboard": "仪表盘",
+    "greeting": "你好，{name}",
+    "kpi": {
+      "articles": "已发布商品",
+      "orders": "报价请求",
+      "team": "团队账户",
+      "value": "目录总值"
+    },
+    "tabs": {
+      "catalogue": "商品目录",
+      "quick": "快速添加",
+      "aiText": "AI 搜索",
+      "aiPhoto": "AI 照片",
+      "team": "团队",
+      "orders": "请求",
+      "stores": "门店"
+    },
+    "form": {
+      "editTitle": "编辑商品",
+      "newTitle": "新商品",
+      "name": "名称 *",
+      "description": "描述",
+      "category": "类别 *",
+      "price": "价格 (F CFA)",
+      "photo": "商品照片",
+      "previewAlt": "商品预览",
+      "replace": "替换",
+      "remove": "移除",
+      "browse": "浏览照片",
+      "browseHint": "从您的电脑或手机 · JPG、PNG、WEBP",
+      "uploading": "上传中…",
+      "hideUrl": "− 隐藏 URL",
+      "showUrl": "+ 或粘贴图片 URL",
+      "save": "保存",
+      "create": "添加",
+      "cancel": "取消",
+      "uploadFailed": "上传失败。"
+    },
+    "list": {
+      "empty": "暂无商品。请添加一个，或使用「快速添加」。",
+      "edit": "编辑",
+      "delete": "删除",
+      "confirmDelete": "删除此商品？"
+    },
+    "toast": {
+      "articleUpdated": "商品已更新。",
+      "articleAdded": "商品已添加。",
+      "saveError": "保存时出错。",
+      "articleDeleted": "商品已删除。",
+      "addedToCatalogue": "「{name}」已添加到目录。",
+      "saveFailed": "保存失败。",
+      "bulkAdded": "{count, plural, other{已将 # 件商品添加到目录。}}",
+      "subAdminCreated": "子管理员已创建。",
+      "genericError": "错误。",
+      "accountDeleted": "账户已删除。",
+      "deleteFailed": "无法删除。",
+      "storeAdded": "门店已添加。",
+      "storeUpdated": "门店已更新。",
+      "storeDeleted": "门店已删除。",
+      "storeError": "无法保存门店。"
+    },
+    "quick": {
+      "title": "快速添加",
+      "subtitle": "{count} 件常见商品已就绪可发布。一键即可添加到目录。",
+      "add": "+ 添加"
+    },
+    "aiText": {
+      "title": "AI 搜索",
+      "subtitle": "用日常语言描述需求 —— AI（Gemini）会推荐可发布的商品。",
+      "label": "您的需求",
+      "placeholder": "例如：「重新粉刷一间 12 平方米卧室所需的材料，墙面和天花」",
+      "ask": "询问 AI",
+      "searching": "搜索中…",
+      "spinner": "Gemini 正在分析您的请求…",
+      "noResults": "针对此请求没有建议。请更精确地重新表述。",
+      "searchFailed": "AI 搜索失败。",
+      "added": "已添加 ✓",
+      "add": "+ 添加"
+    },
+    "aiPhoto": {
+      "title": "AI 照片",
+      "subtitle": "拍摄或上传一张照片：AI 识别可见的商品，并在发布前提交给您确认。",
+      "label": "商品（可多件）的照片",
+      "previewAlt": "预览",
+      "analyze": "分析照片",
+      "analyzing": "分析中…",
+      "reset": "重置",
+      "spinner": "Gemini 正在分析图片…",
+      "noResults": "未能在照片中识别出商品。请尝试更清晰的图片。",
+      "imageFailed": "图片分析失败。",
+      "detected": "{count, plural, other{已检测到 # 件商品 —— 勾选要发布的}}",
+      "addSelection": "添加所选（{count}）",
+      "added": "已添加 ✓"
+    },
+    "team": {
+      "addTitle": "添加子管理员",
+      "username": "用户名",
+      "password": "密码（至少 6 位）",
+      "createAccount": "创建账户",
+      "onlyPrincipal": "只有主管理员才能管理账户。",
+      "rolePrincipal": "主管理员",
+      "roleSub": "子管理员",
+      "you": "· 您",
+      "delete": "删除",
+      "protected": "受保护",
+      "confirmDelete": "删除此管理员账户？"
+    },
+    "orders": {
+      "empty": "目前没有报价请求。",
+      "storeTag": "门店",
+      "noStore": "未指定"
+    },
+    "stores": {
+      "title": "门店",
+      "subtitle": "管理 Solid-BTP 门店。",
+      "addTitle": "添加门店",
+      "editTitle": "编辑门店",
+      "onlyPrincipal": "只有主管理员可以添加或编辑门店。",
+      "empty": "暂无门店。",
+      "name": "门店名称",
+      "city": "城市",
+      "address": "地址",
+      "phone": "电话",
+      "email": "邮箱",
+      "hours": "营业时间",
+      "lat": "纬度",
+      "lon": "经度",
+      "coordsHint": "GPS 坐标（可选）— 用于显示地图。",
+      "note": "备注（可选）",
+      "create": "创建门店",
+      "save": "保存",
+      "cancel": "取消",
+      "edit": "编辑",
+      "delete": "删除",
+      "confirmDelete": "删除此门店？"
+    }
+  },
+  "api": {
+    "unauthorized": "未授权。",
+    "aiDescribe": "请描述您要找的东西。",
+    "imageMissing": "缺少「图片」字段。",
+    "imageTooLarge": "图片过大（上限 5 MB）。",
+    "imageFormat": "不支持的图片格式。",
+    "imageNone": "未提供图片。",
+    "imageUnreadable": "无法读取图片。",
+    "aiConfig": "AI 服务未配置。",
+    "aiUnavailable": "AI 服务暂时不可用。",
+    "aiUnexpected": "发生意外错误。",
+    "rateLimited": "请求过于频繁。请稍候片刻再试。",
+    "loginRequired": "需要凭据。",
+    "loginInvalid": "用户名或密码不正确。",
+    "articleFields": "需要名称和类别。",
+    "articleNotFound": "未找到商品。",
+    "adminOnlyAdd": "只有主管理员才能添加账户。",
+    "adminFields": "需要用户名和密码（至少 6 个字符）。",
+    "adminExists": "该用户名已存在。",
+    "subCannotDelete": "子管理员无法删除账户。",
+    "accountNotFound": "未找到账户。",
+    "principalProtected": "主管理员无法被删除。",
+    "orderFields": "需要姓名、电子邮箱和电话。",
+    "uploadMultipart": "期望的格式：multipart/form-data。",
+    "uploadFormat": "不支持的格式（JPG、PNG、WEBP 或 GIF）。",
+    "uploadFailed": "上传失败。",
+    "storeAdminOnly": "只有主管理员可以管理门店。",
+    "storeFields": "门店名称和城市为必填项。",
+    "storeNotFound": "未找到门店。"
+  },
+  "stores": {
+    "tag": "我们的门店",
+    "title": "离您最近的 Solid-BTP 门店",
+    "subtitle": "在科特迪瓦各地设有多家门店，为您服务。请选择您的门店。",
+    "addressLabel": "地址",
+    "phoneLabel": "电话",
+    "hoursLabel": "营业时间",
+    "emailLabel": "邮箱",
+    "directions": "打开路线",
+    "mapTitle": "地图 — {name}",
+    "empty": "新门店即将开业，敬请期待！",
+    "selectPrompt": "选择一家门店以在地图上查看。"
+  }
+}

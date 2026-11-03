@@ -1,0 +1,573 @@
+{
+  "metadata": {
+    "title": "Solid-BTP — スーパー金物店 · 建築のすべてを",
+    "description": "ダロアのSolid-BTP：金物、家電、配管、電気、塗料、工具、建築資材。建築に必要なすべてを、適正価格で。"
+  },
+  "common": {
+    "reset": "リセット",
+    "retry": "再試行",
+    "clear": "クリア",
+    "add": "追加",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "delete": "削除",
+    "edit": "編集",
+    "loading": "読み込み中…",
+    "imageTooLarge": "画像が大きすぎます（最大5MB）。",
+    "aiUnavailable": "AIサービスを利用できません。もう一度お試しください。",
+    "logoAlt": "Solid-BTP — スーパー金物店、建築のすべてを"
+  },
+  "languageSwitcher": {
+    "label": "言語",
+    "change": "言語を変更（現在：{language}）"
+  },
+  "nav": {
+    "homeAria": "Solid-BTP、ホーム",
+    "catalogue": "カタログ",
+    "advice": "クイック相談",
+    "reviews": "レビュー",
+    "findUs": "店舗案内",
+    "contact": "お問い合わせ",
+    "adminSpace": "管理者エリア",
+    "freeQuote": "無料見積もり",
+    "requestQuote": "見積もりを依頼",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる",
+    "background": "サイトの背景",
+    "stores": "店舗"
+  },
+  "ambiance": {
+    "label": "テーマ",
+    "background": "サイトの背景",
+    "changeAria": "サイトのテーマ：{name}。変更する",
+    "atelier": {
+      "label": "アトリエ",
+      "hint": "現場の写真"
+    },
+    "minuit": {
+      "label": "ミッドナイト",
+      "hint": "近未来的な夜の青"
+    },
+    "ivoire": {
+      "label": "アイボリー",
+      "hint": "明るく温かい"
+    },
+    "gris": {
+      "label": "ライトグレー",
+      "hint": "明るくミニマル"
+    }
+  },
+  "categories": {
+    "electromenager": {
+      "label": "家電",
+      "blurb": "冷却・調理・快適"
+    },
+    "plomberie": {
+      "label": "配管",
+      "blurb": "配管・継手"
+    },
+    "electricite": {
+      "label": "電気",
+      "blurb": "配線・照明"
+    },
+    "peinture": {
+      "label": "塗料・ドラッグ用品",
+      "blurb": "仕上げ・パテ"
+    },
+    "outillage": {
+      "label": "工具",
+      "blurb": "手工具・電動工具"
+    },
+    "quincaillerie": {
+      "label": "金物",
+      "blurb": "ねじ・金具"
+    },
+    "materiaux": {
+      "label": "建築資材",
+      "blurb": "躯体工事・仕上げ工事"
+    },
+    "sanitaire": {
+      "label": "衛生設備",
+      "blurb": "設備・水栓金具"
+    }
+  },
+  "hero": {
+    "badge": "金物 · 建築 · ダロア",
+    "tagline": "スーパー金物店 — 建築のすべてを",
+    "description": "最初の基礎から最後の塗装まで：家電、配管、電気、工具、資材を一つ屋根の下に、適正価格でご用意します。",
+    "exploreCatalogue": "カタログを見る",
+    "findMaterial": "資材を探す",
+    "stats": {
+      "rayonsLabel": "専門売り場",
+      "referencesLabel": "在庫アイテム数",
+      "openLabel": "ダロアで営業中",
+      "openValue": "年中無休"
+    },
+    "hours": "年中無休 · 7:30 – 18:30",
+    "location": "ダロア · コートジボワール",
+    "scroll": "スクロール",
+    "scrollAria": "下にスクロール",
+    "marquee": [
+      "セメント",
+      "塗料",
+      "配管",
+      "電気",
+      "工具",
+      "タイル",
+      "衛生設備",
+      "金物"
+    ]
+  },
+  "quiz": {
+    "badge": "クイック相談 · 60秒",
+    "title": "あなたに最適な資材を見つけよう",
+    "subtitle": "3つの質問で、オーダーメイドの提案を。店頭のアドバイザーのように、オンラインで。",
+    "questionTag": "質問",
+    "step": "{current}/{total}",
+    "previous": "戻る",
+    "recommendationTag": "あなたへのおすすめ",
+    "budgetAdvised": "推奨予算",
+    "summary": "プロジェクト：{project} · 予算：{budget} F CFA",
+    "viewCatalogue": "カタログで見る",
+    "restart": "やり直す",
+    "questions": {
+      "projet": {
+        "title": "どのようなプロジェクトですか？",
+        "hint": "取り組んでいる内容を教えてください。",
+        "options": {
+          "construction": "新築",
+          "renovation": "リフォーム",
+          "plomberie": "配管",
+          "electricite": "電気",
+          "decoration": "内装・塗装",
+          "bricolage": "ちょっとしたDIY"
+        }
+      },
+      "besoin": {
+        "title": "どの商品をお探しですか？",
+        "hint": "カテゴリを選ぶか、お任せください。",
+        "options": {
+          "outillage": "工具",
+          "materiaux": "資材",
+          "electromenager": "家電",
+          "sanitaire": "衛生設備",
+          "quincaillerie": "金物",
+          "surprise": "おまかせ"
+        }
+      },
+      "budget": {
+        "title": "ご予算はどのくらいですか？",
+        "hint": "おすすめを調整するため、CFAフランでお答えください。",
+        "options": {
+          "low": "25,000未満",
+          "mid": "25,000 – 100,000",
+          "high": "100,000 – 500,000",
+          "premium": "500,000以上"
+        }
+      }
+    },
+    "packs": {
+      "surpriseTagline": "当店の職人が選んだ、いち押しのセレクション。",
+      "construction": {
+        "kit": "躯体工事パック",
+        "tagline": "壁を立て、基礎を打つために必要なすべて。"
+      },
+      "renovation": {
+        "kit": "リフォームパック",
+        "tagline": "床から天井まで、まるごと一新。"
+      },
+      "plomberie": {
+        "kit": "配管パック",
+        "tagline": "漏れのない、長持ちする給排水システム。"
+      },
+      "electricite": {
+        "kit": "電気パック",
+        "tagline": "基準に適合した安全な設置。"
+      },
+      "decoration": {
+        "kit": "仕上げパック",
+        "tagline": "すべてを変える最後の仕上げ。"
+      },
+      "bricolage": {
+        "kit": "DIYパック",
+        "tagline": "必需品をいつも手の届くところに。"
+      }
+    }
+  },
+  "catalogue": {
+    "tag": "当店のカタログ",
+    "title": "建築のすべてを、売り場ごとに",
+    "searchPlaceholder": "商品を検索…",
+    "searchAria": "商品を検索",
+    "all": "すべて",
+    "imageSoon": "画像は近日公開",
+    "price": "価格",
+    "order": "注文する",
+    "count": "{count, plural, =0{商品はありません} other{# 件の商品}}",
+    "resetFilters": "フィルターをリセット",
+    "reset": "リセット",
+    "loadError": {
+      "title": "カタログは一時的に利用できません",
+      "body": "接続を確認して、もう一度お試しください。"
+    },
+    "empty": {
+      "title": "商品が見つかりません",
+      "body": "別のキーワードやカテゴリでお試しください。"
+    },
+    "ai": {
+      "title": "AIアシスタント",
+      "subtitle": "プロジェクトを説明するか、写真を見せてください",
+      "placeholder": "例：「8㎡の浴室にタイルを貼るのに必要なもの」",
+      "describeAria": "必要なものを説明",
+      "ask": "AIに尋ねる",
+      "searching": "検索中…",
+      "photo": "📷 写真",
+      "photoTitle": "写真を撮るかアップロード",
+      "spinner": "Geminiがカタログを検索しています…",
+      "searchFailed": "AI検索に失敗しました。",
+      "imageFailed": "画像の解析に失敗しました。",
+      "yourPhoto": "あなたの写真",
+      "quoted": "「{query}」",
+      "suggestedCount": "{count, plural, =0{該当する商品はありません} other{AIが提案した # 件の商品}}",
+      "forLabel": "{label}向け",
+      "previewAlt": "プレビュー",
+      "clear": "クリア",
+      "noMatchTitle": "当店のカタログに一致するものがありません",
+      "noMatchBody": "リクエストを言い換えるか、<quote>見積もりを依頼</quote>してください — 商品をお取り寄せできます。"
+    }
+  },
+  "testimonials": {
+    "tag": "信頼されています",
+    "title": "お客様の声",
+    "subtitle": "職人、施工業者、個人のお客様：皆さまがSolid-BTPとともに建てています。",
+    "ratingAria": "平均評価 5点満点中 {rating} 点",
+    "verifiedCount": "{count} 件の認証済みレビュー",
+    "fiveStarsAria": "5点満点中5点",
+    "verified": "認証済み",
+    "footer": "Solid-BTPのお客様ですか？ <link>体験を共有する →</link>",
+    "reviews": [
+      {
+        "name": "Koffi Aristide",
+        "role": "建設業者、ダロア",
+        "quote": "私の現場では、Solid-BTPは欠かせない存在になりました。在庫は常にあり、的確なアドバイスと適正な価格。おかげで大幅に時間を節約できています。"
+      },
+      {
+        "name": "Mariam Touré",
+        "role": "個人のお客様、リフォーム",
+        "quote": "彼らのおかげでキッチンをまるごと作り直しました。タイルから塗装まで、スタッフが案内してくれました。仕上がりは完璧で、対応も温かかったです。"
+      },
+      {
+        "name": "Jean-Baptiste N'Guessan",
+        "role": "独立系の電気技師",
+        "quote": "ケーブル、ブレーカー、照明：すべて基準どおりに揃っています。オープン以来、私の頼れる金物店です。"
+      }
+    ]
+  },
+  "map": {
+    "tag": "店舗案内",
+    "title": "ダロアの中心で",
+    "subtitle": "ぜひご来店ください：当店の職人がお迎えし、その場でアドバイスいたします。",
+    "iframeTitle": "ダロアのSolid-BTPの所在地",
+    "openRoute": "ルートを開く",
+    "info": {
+      "addressLabel": "住所",
+      "addressValue": "商業地区、ダロア、オー・サッサンドラ、コートジボワール",
+      "phoneLabel": "電話",
+      "hoursLabel": "営業時間",
+      "hoursValue": "年中無休 · 月～日 · 7:30 – 18:30",
+      "emailLabel": "メール"
+    }
+  },
+  "contact": {
+    "tag": "見積もり・注文",
+    "title": "見積もりを依頼する",
+    "intro": "必要なものと納期をお知らせください。用語に自信がなくても大丈夫。<strong>記入のお手伝いをします</strong> — 音声入力や候補の提案で。",
+    "steps": [
+      {
+        "title": "必要なものを説明",
+        "desc": "商品、数量、ご希望日。"
+      },
+      {
+        "title": "提案を受け取る",
+        "desc": "在庫状況と最安価格。"
+      },
+      {
+        "title": "店舗で受け取り",
+        "desc": "ダロアにてご用意・準備完了。"
+      }
+    ],
+    "reassureTitle": "担当者がお答えします",
+    "reassureBody": "24時間以内に返信 · 年中無休 · ダロア、コートジボワール",
+    "atelierKicker": "私たちのアトリエ",
+    "atelierTitle": "相談と資材を一つ屋根の下に",
+    "atelierAlt": "Solid-BTP アトリエ",
+    "doneTitle": "リクエストを送信しました！",
+    "doneBody": "ありがとうございます。担当チームがまもなく見積もりとともにご連絡いたします。",
+    "newRequest": "新しいリクエスト",
+    "nameLabel": "氏名 *",
+    "namePlaceholder": "お名前",
+    "emailLabel": "メール *",
+    "emailPlaceholder": "vous@email.com",
+    "phoneLabel": "電話 *",
+    "phonePlaceholder": "+225 ...",
+    "dateLabel": "ご希望日",
+    "messageLabel": "メッセージ",
+    "messagePlaceholder": "商品、数量、現場の詳細… またはマイクで音声入力 🎙️",
+    "voiceListening": "🎤 聞き取り中…",
+    "voicePrompt": "🎤 音声で入力",
+    "voiceStartAria": "音声入力を開始",
+    "voiceStopAria": "音声入力を停止",
+    "suggestMatching": "一致する商品 — クリックして追加",
+    "suggestPopular": "人気の商品",
+    "suggestStart": "まずはこちらから",
+    "submit": "リクエストを送信",
+    "submitting": "送信中…",
+    "footnote": "24時間以内に返信 · 年中無休 · ダロア、コートジボワール",
+    "sendFailed": "送信に失敗しました。",
+    "genericError": "エラーが発生しました。",
+    "starters": [
+      {
+        "label": "新築",
+        "text": "新築を始めます。必要なものは以下のとおりです："
+      },
+      {
+        "label": "リフォーム",
+        "text": "スペースをリフォームします。希望する商品の一覧："
+      },
+      {
+        "label": "配管",
+        "text": "配管プロジェクトです。必要なもの："
+      },
+      {
+        "label": "塗装",
+        "text": "塗装工事です。面と必要なもの："
+      }
+    ],
+    "storeLabel": "対象の店舗",
+    "storePlaceholder": "店舗を選択",
+    "storeHint": "お問い合わせはこの店舗に送信されます。"
+  },
+  "footer": {
+    "blurb": "スーパー金物店 — 建築のすべてを。ダロア（コートジボワール）で資材・工具・設備をお届けするあなたのパートナー。",
+    "ratingAria": "5点満点中5点の評価",
+    "rayons": "売り場",
+    "links": "リンク",
+    "contact": "お問い合わせ",
+    "linkAdvice": "クイック相談",
+    "linkReviews": "お客様のレビュー",
+    "linkFindUs": "店舗案内",
+    "linkQuote": "見積もりを依頼",
+    "linkAdmin": "管理者エリア",
+    "addressLabel": "住所",
+    "addressValue": "商業地区、ダロア — コートジボワール",
+    "phoneLabel": "電話",
+    "emailLabel": "メール",
+    "hoursLabel": "営業時間",
+    "hoursValue": "年中無休 · 月～日 · 7:30 – 18:30",
+    "copyright": "© {year} Solid-BTP · ダロア、コートジボワール",
+    "slogan": "スーパー金物店 · 建築のすべてを",
+    "backToTop": "↑ トップへ"
+  },
+  "scrollTop": {
+    "aria": "ページの先頭に戻る"
+  },
+  "login": {
+    "logoAlt": "Solid-BTP — スーパー金物店",
+    "kicker": "関係者専用",
+    "title": "管理者エリア",
+    "subtitle": "ログインしてカタログを管理します。",
+    "username": "ユーザー名",
+    "password": "パスワード",
+    "submit": "ログイン",
+    "submitting": "ログイン中…",
+    "backToSite": "← サイトに戻る",
+    "failed": "ログインできません。",
+    "error": "ログインエラー。"
+  },
+  "admin": {
+    "badge": "管理",
+    "rolePrincipalShort": "主管理者",
+    "roleSubShort": "副管理者",
+    "viewSite": "サイトを見る ↗",
+    "logout": "ログアウト",
+    "dashboard": "ダッシュボード",
+    "greeting": "こんにちは、{name}さん",
+    "kpi": {
+      "articles": "公開済み商品",
+      "orders": "見積もり依頼",
+      "team": "チームアカウント",
+      "value": "カタログ総額"
+    },
+    "tabs": {
+      "catalogue": "カタログ",
+      "quick": "クイック追加",
+      "aiText": "AI検索",
+      "aiPhoto": "AI写真",
+      "team": "チーム",
+      "orders": "依頼",
+      "stores": "店舗"
+    },
+    "form": {
+      "editTitle": "商品を編集",
+      "newTitle": "新規商品",
+      "name": "名称 *",
+      "description": "説明",
+      "category": "カテゴリ *",
+      "price": "価格 (F CFA)",
+      "photo": "商品の写真",
+      "previewAlt": "商品プレビュー",
+      "replace": "差し替え",
+      "remove": "削除",
+      "browse": "写真を選択",
+      "browseHint": "PCまたはスマホから · JPG、PNG、WEBP",
+      "uploading": "アップロード中…",
+      "hideUrl": "− URLを隠す",
+      "showUrl": "+ または画像URLを貼り付け",
+      "save": "保存",
+      "create": "追加",
+      "cancel": "キャンセル",
+      "uploadFailed": "アップロードに失敗しました。"
+    },
+    "list": {
+      "empty": "商品がありません。追加するか、「クイック追加」をご利用ください。",
+      "edit": "編集",
+      "delete": "削除",
+      "confirmDelete": "この商品を削除しますか？"
+    },
+    "toast": {
+      "articleUpdated": "商品を更新しました。",
+      "articleAdded": "商品を追加しました。",
+      "saveError": "保存時にエラーが発生しました。",
+      "articleDeleted": "商品を削除しました。",
+      "addedToCatalogue": "「{name}」をカタログに追加しました。",
+      "saveFailed": "保存に失敗しました。",
+      "bulkAdded": "{count, plural, other{# 件の商品をカタログに追加しました。}}",
+      "subAdminCreated": "副管理者を作成しました。",
+      "genericError": "エラー。",
+      "accountDeleted": "アカウントを削除しました。",
+      "deleteFailed": "削除できませんでした。",
+      "storeAdded": "店舗を追加しました。",
+      "storeUpdated": "店舗を更新しました。",
+      "storeDeleted": "店舗を削除しました。",
+      "storeError": "店舗を保存できませんでした。"
+    },
+    "quick": {
+      "title": "クイック追加",
+      "subtitle": "{count} 件の定番商品が公開可能です。クリックでカタログに追加します。",
+      "add": "+ 追加"
+    },
+    "aiText": {
+      "title": "AI検索",
+      "subtitle": "必要なものを普通の言葉で説明してください — AI（Gemini）が公開する商品を提案します。",
+      "label": "必要なもの",
+      "placeholder": "例：「12㎡の寝室を塗り直すのに必要なもの、壁と天井」",
+      "ask": "AIに尋ねる",
+      "searching": "検索中…",
+      "spinner": "Geminiがリクエストを解析しています…",
+      "noResults": "このリクエストに対する提案はありません。より具体的に言い換えてください。",
+      "searchFailed": "AI検索に失敗しました。",
+      "added": "追加済み ✓",
+      "add": "+ 追加"
+    },
+    "aiPhoto": {
+      "title": "AI写真",
+      "subtitle": "写真を撮るかアップロードしてください：AIが写っている商品を識別し、公開前に確認できるよう提案します。",
+      "label": "商品（複数可）の写真",
+      "previewAlt": "プレビュー",
+      "analyze": "写真を解析",
+      "analyzing": "解析中…",
+      "reset": "リセット",
+      "spinner": "Geminiが画像を解析しています…",
+      "noResults": "写真から商品を認識できませんでした。より鮮明な画像でお試しください。",
+      "imageFailed": "画像の解析に失敗しました。",
+      "detected": "{count, plural, other{# 件の商品を検出 — 公開するものにチェック}}",
+      "addSelection": "選択を追加（{count}）",
+      "added": "追加済み ✓"
+    },
+    "team": {
+      "addTitle": "副管理者を追加",
+      "username": "ユーザー名",
+      "password": "パスワード（6文字以上）",
+      "createAccount": "アカウントを作成",
+      "onlyPrincipal": "アカウントを管理できるのは主管理者のみです。",
+      "rolePrincipal": "主管理者",
+      "roleSub": "副管理者",
+      "you": "· あなた",
+      "delete": "削除",
+      "protected": "保護済み",
+      "confirmDelete": "この管理者アカウントを削除しますか？"
+    },
+    "orders": {
+      "empty": "現在、見積もり依頼はありません。",
+      "storeTag": "店舗",
+      "noStore": "未指定"
+    },
+    "stores": {
+      "title": "店舗",
+      "subtitle": "Solid-BTPの店舗を管理します。",
+      "addTitle": "店舗を追加",
+      "editTitle": "店舗を編集",
+      "onlyPrincipal": "店舗の追加・編集は主管理者のみが行えます。",
+      "empty": "登録された店舗はありません。",
+      "name": "店舗名",
+      "city": "都市",
+      "address": "住所",
+      "phone": "電話",
+      "email": "メール",
+      "hours": "営業時間",
+      "lat": "緯度",
+      "lon": "経度",
+      "coordsHint": "GPS座標（任意）— 地図を表示します。",
+      "note": "メモ（任意）",
+      "create": "店舗を作成",
+      "save": "保存",
+      "cancel": "キャンセル",
+      "edit": "編集",
+      "delete": "削除",
+      "confirmDelete": "この店舗を削除しますか？"
+    }
+  },
+  "api": {
+    "unauthorized": "権限がありません。",
+    "aiDescribe": "お探しのものを説明してください。",
+    "imageMissing": "「画像」フィールドがありません。",
+    "imageTooLarge": "画像が大きすぎます（最大5MB）。",
+    "imageFormat": "サポートされていない画像形式です。",
+    "imageNone": "画像が指定されていません。",
+    "imageUnreadable": "画像を読み取れません。",
+    "aiConfig": "AIサービスが構成されていません。",
+    "aiUnavailable": "AIサービスは一時的に利用できません。",
+    "aiUnexpected": "予期しないエラーです。",
+    "rateLimited": "リクエストが多すぎます。しばらく待ってから再度お試しください。",
+    "loginRequired": "認証情報が必要です。",
+    "loginInvalid": "ユーザー名またはパスワードが正しくありません。",
+    "articleFields": "名称とカテゴリが必要です。",
+    "articleNotFound": "商品が見つかりません。",
+    "adminOnlyAdd": "アカウントを追加できるのは主管理者のみです。",
+    "adminFields": "ユーザー名とパスワード（6文字以上）が必要です。",
+    "adminExists": "このユーザー名はすでに存在します。",
+    "subCannotDelete": "副管理者はアカウントを削除できません。",
+    "accountNotFound": "アカウントが見つかりません。",
+    "principalProtected": "主管理者は削除できません。",
+    "orderFields": "名前、メール、電話が必要です。",
+    "uploadMultipart": "想定される形式：multipart/form-data。",
+    "uploadFormat": "サポートされていない形式です（JPG、PNG、WEBP、GIF）。",
+    "uploadFailed": "アップロードに失敗しました。",
+    "storeAdminOnly": "店舗の管理は主管理者のみが行えます。",
+    "storeFields": "店舗名と都市は必須です。",
+    "storeNotFound": "店舗が見つかりません。"
+  },
+  "stores": {
+    "tag": "店舗一覧",
+    "title": "最寄りのSolid-BTP店舗",
+    "subtitle": "コートジボワール各地に複数の店舗があります。お近くの店舗をお選びください。",
+    "addressLabel": "住所",
+    "phoneLabel": "電話",
+    "hoursLabel": "営業時間",
+    "emailLabel": "メール",
+    "directions": "ルートを開く",
+    "mapTitle": "地図 — {name}",
+    "empty": "新店舗を準備中です。またご覧ください。",
+    "selectPrompt": "地図で見る店舗を選択してください。"
+  }
+}

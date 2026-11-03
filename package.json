@@ -1,0 +1,43 @@
+{
+  "name": "solid-btp",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "prisma generate",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:seed": "prisma db seed",
+    "db:import": "tsx scripts/import-from-json.ts",
+    "db:studio": "prisma studio",
+    "pg:start": "node scripts/pg.mjs start",
+    "pg:stop": "node scripts/pg.mjs stop",
+    "pg:status": "node scripts/pg.mjs status"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "framer-motion": "^11.3.0",
+    "next": "^16.2.9",
+    "next-intl": "^4.13.0",
+    "prisma": "^6.19.3",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "tsx": "^4.22.4",
+    "typescript": "^5.5.0"
+  }
+}

@@ -1,0 +1,279 @@
+// Solid-BTP database schema — PostgreSQL via Prisma.
+// Phase 0 of the DB migration: models mirror the previous JSON shapes
+// (lib/types.ts) 1:1 so the move is iso-functional. Ids stay 16-char hex,
+// generated in app code (lib/db.ts#newId) and passed explicitly on create.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           String   @id
+  username     String   @unique
+  passwordHash String
+  salt         String
+  role         String   @default("sub") // "super" | "sub"
+  createdAt    DateTime @default(now())
+
+  stores AdminStore[]
+
+  @@map("admins")
+}
+
+// Which stores a sub-admin (gérant) may manage. The super-admin sees every
+// store regardless; sub-admins are restricted to their AdminStore rows.
+model AdminStore {
+  id      String @id
+  adminId String
+  storeId String
+
+  admin Admin @relation(fields: [adminId], references: [id], onDelete: Cascade)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  @@unique([adminId, storeId])
+  @@index([storeId])
+  @@map("admin_stores")
+}
+
+// Per-store stock + pricing for a global Article (the product reference stays
+// global; quantity, purchase price and sale price are per store).
+model StockItem {
+  id            String   @id
+  storeId       String
+  articleId     String
+  quantity      Int      @default(0)
+  purchasePrice Int      @default(0) // prix d'achat, F CFA
+  salePrice     Int      @default(0) // prix de vente, F CFA
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  store   Store   @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  article Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+
+  @@unique([storeId, articleId])
+  @@index([articleId])
+  @@map("stock_items")
+}
+
+// A store customer. Created/updated automatically when a credit (FACR) or
+// avoir (FAA) invoice is issued; editable by hand. `balance` is signed:
+// > 0 means the client owes Solid-BTP (crédit), < 0 means a credit in their favour.
+model Customer {
+  id        String   @id
+  storeId   String
+  name      String
+  phone     String   @default("")
+  address   String   @default("")
+  email     String   @default("")
+  balance   Int      @default(0) // F CFA, signed
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  store    Store     @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  invoices Invoice[]
+
+  @@index([storeId])
+  @@map("customers")
+}
+
+// A typed, auto-numbered invoice. `type` ∈ FAN | FAR | FAA | FACR | FAD.
+// `seq` is the per-store, per-type running number; `number` = "<PREFIX>-<seq padded>".
+model Invoice {
+  id              String   @id
+  storeId         String
+  type            String // FAN | FAR | FAA | FACR | FAD
+  number          String // ex. "FACR-0007"
+  seq             Int
+  date            DateTime @default(now())
+  customerId      String?
+  customerName    String   @default("")
+  customerPhone   String   @default("")
+  customerAddress String   @default("")
+  subtotal        Int      @default(0) // montant total HT, F CFA
+  tax             Int      @default(0) // taxe, F CFA
+  total           Int      @default(0) // montant TTC, F CFA
+  note            String   @default("")
+  createdById     String   @default("")
+  createdAt       DateTime @default(now())
+
+  store    Store         @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  customer Customer?     @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  items    InvoiceItem[]
+
+  @@unique([storeId, type, seq])
+  @@index([storeId])
+  @@index([customerId])
+  @@map("invoices")
+}
+
+model InvoiceItem {
+  id        String  @id
+  invoiceId String
+  articleId String? // optional link to a catalogue product
+  label     String
+  quantity  Int     @default(1)
+  unitPrice Int     @default(0) // F CFA
+  lineTotal Int     @default(0) // F CFA
+
+  invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+
+  @@index([invoiceId])
+  @@map("invoice_items")
+}
+
+// Per-store, per-type running counter for invoice numbering. Bumped inside a
+// transaction so two concurrent saves never collide on the same number.
+model InvoiceCounter {
+  id      String @id
+  storeId String
+  type    String
+  lastSeq Int    @default(0)
+
+  @@unique([storeId, type])
+  @@map("invoice_counters")
+}
+
+// A supplier the store buys from. `balance` = amount the store still owes them.
+model Supplier {
+  id        String   @id
+  storeId   String
+  name      String
+  phone     String   @default("")
+  email     String   @default("")
+  address   String   @default("")
+  balance   Int      @default(0) // F CFA owed to the supplier
+  note      String   @default("")
+  createdAt DateTime @default(now())
+
+  store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  @@index([storeId])
+  @@map("suppliers")
+}
+
+// A store employee. `balance` is derived from EmployeeTx rows (advances raise
+// what the employee owes / has drawn against salary). `status` ∈ active | terminated.
+model Employee {
+  id         String   @id
+  storeId    String
+  name       String
+  position   String   @default("")
+  phone      String   @default("")
+  baseSalary Int      @default(0) // F CFA / month
+  balance    Int      @default(0) // F CFA, signed
+  status     String   @default("active") // active | terminated
+  hiredAt    DateTime @default(now())
+  createdAt  DateTime @default(now())
+
+  store        Store        @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  transactions EmployeeTx[]
+
+  @@index([storeId])
+  @@map("employees")
+}
+
+model EmployeeTx {
+  id         String   @id
+  employeeId String
+  type       String // salary | advance | adjustment
+  amount     Int // F CFA
+  date       DateTime @default(now())
+  note       String   @default("")
+  createdAt  DateTime @default(now())
+
+  employee Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+
+  @@index([employeeId])
+  @@map("employee_txs")
+}
+
+// One line of the daily journal ("cahier de jour"). `kind` ∈
+// payment(+) | expense(−) | advance(−) | deposit(−). For expenses, `category` ∈
+// gazoil | journaliers | dechargement | pont_bascule | autre.
+model DayBookEntry {
+  id          String   @id
+  storeId     String
+  date        DateTime
+  kind        String // payment | expense | advance | deposit
+  category    String   @default("") // expense category, when kind = expense
+  label       String   @default("")
+  amount      Int      @default(0) // F CFA, always positive (sign implied by kind)
+  customerId  String?
+  employeeId  String?
+  createdById String   @default("")
+  createdAt   DateTime @default(now())
+
+  store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  @@index([storeId, date])
+  @@index([kind])
+  @@map("daybook_entries")
+}
+
+model Article {
+  id          String   @id
+  name        String
+  description String   @default("")
+  category    String // category id, see lib/constants
+  price       Int      @default(0) // F CFA (XOF, no minor unit)
+  imageUrl    String   @default("")
+  createdAt   DateTime @default(now())
+
+  stock StockItem[]
+
+  @@index([category])
+  @@map("articles")
+}
+
+model Order {
+  id         String   @id
+  name       String
+  email      String
+  phone      String
+  dateNeeded String   @default("")
+  message    String   @default("")
+  storeId    String   @default("") // chosen recipient store ("" if none)
+  createdAt  DateTime @default(now())
+
+  @@index([storeId])
+  @@map("orders")
+}
+
+model Store {
+  id        String   @id
+  name      String
+  city      String
+  address   String   @default("")
+  phone     String   @default("")
+  email     String   @default("")
+  hours     String   @default("")
+  lat       String   @default("") // decimal degrees as string ("" if unknown)
+  lon       String   @default("")
+  imageUrl  String   @default("")
+  note      String   @default("")
+  createdAt DateTime @default(now())
+
+  admins    AdminStore[]
+  stock     StockItem[]
+  customers Customer[]
+  invoices  Invoice[]
+  suppliers Supplier[]
+  employees Employee[]
+  daybook   DayBookEntry[]
+
+  @@map("stores")
+}
+
+model Session {
+  token     String   @id
+  adminId   String
+  createdAt DateTime @default(now())
+
+  @@index([adminId])
+  @@map("sessions")
+}

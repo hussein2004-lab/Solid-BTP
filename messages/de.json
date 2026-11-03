@@ -1,0 +1,573 @@
+{
+  "metadata": {
+    "title": "Solid-BTP — Super-Baumarkt · Alles für den Bau",
+    "description": "Solid-BTP in Daloa: Eisenwaren, Haushaltsgeräte, Sanitär, Elektrik, Farben, Werkzeuge und Baustoffe. Alles für den Bau, zum fairen Preis."
+  },
+  "common": {
+    "reset": "Zurücksetzen",
+    "retry": "Erneut versuchen",
+    "clear": "Löschen",
+    "add": "Hinzufügen",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "loading": "Wird geladen…",
+    "imageTooLarge": "Bild zu groß (max. 5 MB).",
+    "aiUnavailable": "KI-Dienst nicht verfügbar. Bitte erneut versuchen.",
+    "logoAlt": "Solid-BTP — Super-Baumarkt, alles für den Bau"
+  },
+  "languageSwitcher": {
+    "label": "Sprache",
+    "change": "Sprache ändern (aktuell {language})"
+  },
+  "nav": {
+    "homeAria": "Solid-BTP, Startseite",
+    "catalogue": "Katalog",
+    "advice": "Express-Beratung",
+    "reviews": "Bewertungen",
+    "findUs": "So finden Sie uns",
+    "contact": "Kontakt",
+    "adminSpace": "Adminbereich",
+    "freeQuote": "Kostenloses Angebot",
+    "requestQuote": "Angebot anfordern",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "background": "Seitenhintergrund",
+    "stores": "Filialen"
+  },
+  "ambiance": {
+    "label": "Stimmung",
+    "background": "Seitenhintergrund",
+    "changeAria": "Seitenstimmung: {name}. Ändern",
+    "atelier": {
+      "label": "Werkstatt",
+      "hint": "Baustellenfoto"
+    },
+    "minuit": {
+      "label": "Mitternacht",
+      "hint": "Futuristisches Nachtblau"
+    },
+    "ivoire": {
+      "label": "Elfenbein",
+      "hint": "Hell und warm"
+    },
+    "gris": {
+      "label": "Hellgrau",
+      "hint": "Hell und minimalistisch"
+    }
+  },
+  "categories": {
+    "electromenager": {
+      "label": "Haushaltsgeräte",
+      "blurb": "Kühlen, Kochen & Komfort"
+    },
+    "plomberie": {
+      "label": "Sanitär",
+      "blurb": "Rohre & Fittings"
+    },
+    "electricite": {
+      "label": "Elektrik",
+      "blurb": "Verkabelung & Beleuchtung"
+    },
+    "peinture": {
+      "label": "Farben & Drogerie",
+      "blurb": "Finish & Spachtelmassen"
+    },
+    "outillage": {
+      "label": "Werkzeuge",
+      "blurb": "Hand & Elektrowerkzeug"
+    },
+    "quincaillerie": {
+      "label": "Eisenwaren",
+      "blurb": "Schrauben & Beschläge"
+    },
+    "materiaux": {
+      "label": "Baustoffe",
+      "blurb": "Roh- & Ausbau"
+    },
+    "sanitaire": {
+      "label": "Sanitärobjekte",
+      "blurb": "Ausstattung & Armaturen"
+    }
+  },
+  "hero": {
+    "badge": "Eisenwaren · Bau · Daloa",
+    "tagline": "Super-Baumarkt — Alles für den Bau",
+    "description": "Vom ersten Fundament bis zur letzten Schicht Farbe: Haushaltsgeräte, Sanitär, Elektrik, Werkzeuge und Baustoffe — alles unter einem Dach, zum fairen Preis.",
+    "exploreCatalogue": "Katalog entdecken",
+    "findMaterial": "Mein Material finden",
+    "stats": {
+      "rayonsLabel": "Fachabteilungen",
+      "referencesLabel": "Artikel auf Lager",
+      "openLabel": "Geöffnet in Daloa",
+      "openValue": "7/7"
+    },
+    "hours": "7 Tage/Woche geöffnet · 7:30 – 18:30 Uhr",
+    "location": "Daloa · Côte d'Ivoire",
+    "scroll": "Scrollen",
+    "scrollAria": "Nach unten scrollen",
+    "marquee": [
+      "Zement",
+      "Farbe",
+      "Sanitär",
+      "Elektrik",
+      "Werkzeuge",
+      "Fliesen",
+      "Sanitärobjekte",
+      "Eisenwaren"
+    ]
+  },
+  "quiz": {
+    "badge": "Express-Beratung · 60 Sekunden",
+    "title": "Finden Sie Ihr ideales Material",
+    "subtitle": "Drei Fragen, eine maßgeschneiderte Empfehlung. Wie ein Berater im Geschäft, nur online.",
+    "questionTag": "Frage",
+    "step": "{current}/{total}",
+    "previous": "Zurück",
+    "recommendationTag": "Ihre Empfehlung",
+    "budgetAdvised": "Empfohlenes Budget",
+    "summary": "Projekt: {project} · Budget: {budget} F CFA",
+    "viewCatalogue": "Im Katalog ansehen",
+    "restart": "Neu starten",
+    "questions": {
+      "projet": {
+        "title": "Was ist Ihr Projekt?",
+        "hint": "Sagen Sie uns, woran Sie arbeiten.",
+        "options": {
+          "construction": "Neubau",
+          "renovation": "Renovierung",
+          "plomberie": "Sanitär",
+          "electricite": "Elektrik",
+          "decoration": "Dekoration & Anstrich",
+          "bricolage": "Kleine Heimwerkerarbeiten"
+        }
+      },
+      "besoin": {
+        "title": "Welche Artikel suchen Sie?",
+        "hint": "Wählen Sie eine Kategorie — oder lassen Sie uns entscheiden.",
+        "options": {
+          "outillage": "Werkzeuge",
+          "materiaux": "Baustoffe",
+          "electromenager": "Haushaltsgeräte",
+          "sanitaire": "Sanitärobjekte",
+          "quincaillerie": "Eisenwaren",
+          "surprise": "Überraschen Sie mich"
+        }
+      },
+      "budget": {
+        "title": "Wie hoch ist Ihr Budget?",
+        "hint": "In CFA-Franc, um unsere Empfehlungen anzupassen.",
+        "options": {
+          "low": "Weniger als 25.000",
+          "mid": "25.000 – 100.000",
+          "high": "100.000 – 500.000",
+          "premium": "Mehr als 500.000"
+        }
+      }
+    },
+    "packs": {
+      "surpriseTagline": "Unsere Lieblingsauswahl, von unseren Fachleuten zusammengestellt.",
+      "construction": {
+        "kit": "Rohbau-Paket",
+        "tagline": "Alles, um Ihre Wände hochzuziehen und Fundamente zu gießen."
+      },
+      "renovation": {
+        "kit": "Renovierungs-Paket",
+        "tagline": "Alles erneuern, vom Boden bis zur Decke."
+      },
+      "plomberie": {
+        "kit": "Sanitär-Paket",
+        "tagline": "Dichte und langlebige Wasserleitungen."
+      },
+      "electricite": {
+        "kit": "Elektrik-Paket",
+        "tagline": "Eine sichere Installation, nach Norm."
+      },
+      "decoration": {
+        "kit": "Finish-Paket",
+        "tagline": "Der letzte Schliff, der alles verändert."
+      },
+      "bricolage": {
+        "kit": "Heimwerker-Paket",
+        "tagline": "Das Wesentliche immer griffbereit."
+      }
+    }
+  },
+  "catalogue": {
+    "tag": "Unser Katalog",
+    "title": "Das ganze Bauhandwerk, Abteilung für Abteilung",
+    "searchPlaceholder": "Artikel suchen…",
+    "searchAria": "Artikel suchen",
+    "all": "Alle",
+    "imageSoon": "Bild folgt",
+    "price": "Preis",
+    "order": "Bestellen",
+    "count": "{count, plural, =0{Keine Artikel} one{# Artikel} other{# Artikel}}",
+    "resetFilters": "Filter zurücksetzen",
+    "reset": "zurücksetzen",
+    "loadError": {
+      "title": "Katalog vorübergehend nicht verfügbar",
+      "body": "Prüfen Sie Ihre Verbindung und versuchen Sie es erneut."
+    },
+    "empty": {
+      "title": "Keine Artikel gefunden",
+      "body": "Versuchen Sie ein anderes Stichwort oder eine andere Kategorie."
+    },
+    "ai": {
+      "title": "KI-Assistent",
+      "subtitle": "Beschreiben Sie Ihr Projekt oder zeigen Sie ein Foto",
+      "placeholder": "Z. B.: „Material zum Fliesen eines 8 m² großen Bads“",
+      "describeAria": "Beschreiben Sie, was Sie brauchen",
+      "ask": "KI fragen",
+      "searching": "Suche läuft…",
+      "photo": "📷 Foto",
+      "photoTitle": "Foto aufnehmen oder hochladen",
+      "spinner": "Gemini durchsucht den Katalog…",
+      "searchFailed": "Die KI-Suche ist fehlgeschlagen.",
+      "imageFailed": "Die Bildanalyse ist fehlgeschlagen.",
+      "yourPhoto": "Ihr Foto",
+      "quoted": "„{query}“",
+      "suggestedCount": "{count, plural, =0{Keine passenden Artikel} one{# von der KI vorgeschlagener Artikel} other{# von der KI vorgeschlagene Artikel}}",
+      "forLabel": "für {label}",
+      "previewAlt": "Vorschau",
+      "clear": "Löschen",
+      "noMatchTitle": "Keine Übereinstimmung in unserem Katalog",
+      "noMatchBody": "Formulieren Sie Ihre Anfrage um oder <quote>fordern Sie ein Angebot an</quote> — wir können den Artikel beschaffen."
+    }
+  },
+  "testimonials": {
+    "tag": "Sie vertrauen uns",
+    "title": "Das Wort an unsere Kunden",
+    "subtitle": "Handwerker, Bauunternehmer und Privatkunden: Sie bauen mit Solid-BTP.",
+    "ratingAria": "Durchschnittsbewertung {rating} von 5",
+    "verifiedCount": "{count} verifizierte Bewertungen",
+    "fiveStarsAria": "5 von 5 Sternen",
+    "verified": "Verifiziert",
+    "footer": "Kunde bei Solid-BTP? <link>Teilen Sie Ihre Erfahrung →</link>",
+    "reviews": [
+      {
+        "name": "Koffi Aristide",
+        "role": "Bauunternehmer, Daloa",
+        "quote": "Für meine Baustellen ist Solid-BTP unverzichtbar geworden. Immer auf Lager, präzise Beratung und faire Preise. Ich spare enorm viel Zeit."
+      },
+      {
+        "name": "Mariam Touré",
+        "role": "Privatkundin, Renovierung",
+        "quote": "Ich habe meine ganze Küche dank ihnen erneuert. Das Team hat mich von den Fliesen bis zur Farbe begleitet. Tadelloses Ergebnis und herzlicher Empfang."
+      },
+      {
+        "name": "Jean-Baptiste N'Guessan",
+        "role": "Selbstständiger Elektriker",
+        "quote": "Kabel, Sicherungen, Leuchten: alles da, nach Norm. Seit der Eröffnung mein Baumarkt der Wahl."
+      }
+    ]
+  },
+  "map": {
+    "tag": "So finden Sie uns",
+    "title": "Im Herzen von Daloa",
+    "subtitle": "Besuchen Sie uns im Geschäft: Unsere Fachleute empfangen und beraten Sie vor Ort.",
+    "iframeTitle": "Standort von Solid-BTP in Daloa",
+    "openRoute": "Route öffnen",
+    "info": {
+      "addressLabel": "Adresse",
+      "addressValue": "Geschäftsviertel, Daloa, Haut-Sassandra, Côte d'Ivoire",
+      "phoneLabel": "Telefon",
+      "hoursLabel": "Öffnungszeiten",
+      "hoursValue": "7 Tage/Woche · Mo – So · 7:30 – 18:30 Uhr",
+      "emailLabel": "E-Mail"
+    }
+  },
+  "contact": {
+    "tag": "Angebot & Bestellung",
+    "title": "Fordern Sie Ihr Angebot an",
+    "intro": "Sagen Sie uns, was Sie brauchen und bis wann. Unsicher bei den Fachbegriffen? <strong>Wir helfen Ihnen beim Formulieren</strong> — per Sprache oder mit Vorschlägen.",
+    "steps": [
+      {
+        "title": "Beschreiben Sie Ihren Bedarf",
+        "desc": "Artikel, Mengen, Wunschtermin."
+      },
+      {
+        "title": "Erhalten Sie ein Angebot",
+        "desc": "Verfügbarkeit und bester Preis."
+      },
+      {
+        "title": "Abholung im Geschäft",
+        "desc": "Vorbereitet und bereit in Daloa."
+      }
+    ],
+    "reassureTitle": "Ein Berater antwortet Ihnen",
+    "reassureBody": "Antwort innerhalb von 24 Std. · 7 Tage/Woche · Daloa, Côte d'Ivoire",
+    "atelierKicker": "Unsere Werkstatt",
+    "atelierTitle": "Beratung & Material unter einem Dach",
+    "atelierAlt": "Solid-BTP Werkstatt",
+    "doneTitle": "Anfrage gesendet!",
+    "doneBody": "Vielen Dank. Unser Team meldet sich sehr bald mit Ihrem Angebot.",
+    "newRequest": "Neue Anfrage",
+    "nameLabel": "Vollständiger Name *",
+    "namePlaceholder": "Ihr Name",
+    "emailLabel": "E-Mail *",
+    "emailPlaceholder": "vous@email.com",
+    "phoneLabel": "Telefon *",
+    "phonePlaceholder": "+225 ...",
+    "dateLabel": "Wunschtermin",
+    "messageLabel": "Ihre Nachricht",
+    "messagePlaceholder": "Artikel, Mengen, Details zur Baustelle… oder per Mikrofon diktieren 🎙️",
+    "voiceListening": "🎤 Höre zu…",
+    "voicePrompt": "🎤 Per Sprache diktieren",
+    "voiceStartAria": "Sprachdiktat starten",
+    "voiceStopAria": "Diktat beenden",
+    "suggestMatching": "Passende Artikel — zum Hinzufügen klicken",
+    "suggestPopular": "Beliebte Artikel",
+    "suggestStart": "Zum Einstieg",
+    "submit": "Anfrage senden",
+    "submitting": "Wird gesendet…",
+    "footnote": "Antwort innerhalb von 24 Std. · 7 Tage/Woche geöffnet · Daloa, Côte d'Ivoire",
+    "sendFailed": "Senden fehlgeschlagen.",
+    "genericError": "Ein Fehler ist aufgetreten.",
+    "starters": [
+      {
+        "label": "Neubau",
+        "text": "Ich beginne einen Neubau. Das brauche ich:"
+      },
+      {
+        "label": "Renovierung",
+        "text": "Ich renoviere einen Raum. Liste der gewünschten Artikel:"
+      },
+      {
+        "label": "Sanitär",
+        "text": "Sanitärprojekt. Ich brauche:"
+      },
+      {
+        "label": "Anstrich",
+        "text": "Malerarbeiten. Flächen und Bedarf:"
+      }
+    ],
+    "storeLabel": "Betroffene Filiale",
+    "storePlaceholder": "Filiale wählen",
+    "storeHint": "Ihre Anfrage wird an diese Filiale gesendet."
+  },
+  "footer": {
+    "blurb": "Super-Baumarkt — Alles für den Bau. Ihr Partner für Baustoffe, Werkzeuge und Ausstattung in Daloa, Côte d'Ivoire.",
+    "ratingAria": "Mit 5 von 5 Sternen bewertet",
+    "rayons": "Abteilungen",
+    "links": "Links",
+    "contact": "Kontakt",
+    "linkAdvice": "Express-Beratung",
+    "linkReviews": "Kundenbewertungen",
+    "linkFindUs": "So finden Sie uns",
+    "linkQuote": "Angebot anfordern",
+    "linkAdmin": "Adminbereich",
+    "addressLabel": "Adresse",
+    "addressValue": "Geschäftsviertel, Daloa — Côte d'Ivoire",
+    "phoneLabel": "Telefon",
+    "emailLabel": "E-Mail",
+    "hoursLabel": "Öffnungszeiten",
+    "hoursValue": "7 Tage/Woche · Mo – So · 7:30 – 18:30 Uhr",
+    "copyright": "© {year} Solid-BTP · Daloa, Côte d'Ivoire",
+    "slogan": "Super-Baumarkt · Alles für den Bau",
+    "backToTop": "↑ Nach oben"
+  },
+  "scrollTop": {
+    "aria": "Zurück zum Seitenanfang"
+  },
+  "login": {
+    "logoAlt": "Solid-BTP — Super-Baumarkt",
+    "kicker": "Zugang beschränkt",
+    "title": "Adminbereich",
+    "subtitle": "Melden Sie sich an, um den Katalog zu verwalten.",
+    "username": "Benutzername",
+    "password": "Passwort",
+    "submit": "Anmelden",
+    "submitting": "Anmeldung…",
+    "backToSite": "← Zurück zur Website",
+    "failed": "Anmeldung nicht möglich.",
+    "error": "Anmeldefehler."
+  },
+  "admin": {
+    "badge": "Admin",
+    "rolePrincipalShort": "Hauptadmin",
+    "roleSubShort": "Unteradmin",
+    "viewSite": "Website ansehen ↗",
+    "logout": "Abmelden",
+    "dashboard": "Dashboard",
+    "greeting": "Hallo, {name}",
+    "kpi": {
+      "articles": "Veröffentlichte Artikel",
+      "orders": "Angebotsanfragen",
+      "team": "Teamkonten",
+      "value": "Katalogwert"
+    },
+    "tabs": {
+      "catalogue": "Katalog",
+      "quick": "Schnell hinzufügen",
+      "aiText": "KI-Suche",
+      "aiPhoto": "KI-Foto",
+      "team": "Team",
+      "orders": "Anfragen",
+      "stores": "Filialen"
+    },
+    "form": {
+      "editTitle": "Artikel bearbeiten",
+      "newTitle": "Neuer Artikel",
+      "name": "Name *",
+      "description": "Beschreibung",
+      "category": "Kategorie *",
+      "price": "Preis (F CFA)",
+      "photo": "Artikelfoto",
+      "previewAlt": "Artikelvorschau",
+      "replace": "Ersetzen",
+      "remove": "Entfernen",
+      "browse": "Foto durchsuchen",
+      "browseHint": "Von Ihrem PC oder Handy · JPG, PNG, WEBP",
+      "uploading": "Wird hochgeladen…",
+      "hideUrl": "− URL ausblenden",
+      "showUrl": "+ Oder Bild-URL einfügen",
+      "save": "Speichern",
+      "create": "Hinzufügen",
+      "cancel": "Abbrechen",
+      "uploadFailed": "Hochladen fehlgeschlagen."
+    },
+    "list": {
+      "empty": "Keine Artikel. Fügen Sie einen hinzu oder nutzen Sie „Schnell hinzufügen“.",
+      "edit": "Bearbeiten",
+      "delete": "Lösch.",
+      "confirmDelete": "Diesen Artikel löschen?"
+    },
+    "toast": {
+      "articleUpdated": "Artikel aktualisiert.",
+      "articleAdded": "Artikel hinzugefügt.",
+      "saveError": "Fehler beim Speichern.",
+      "articleDeleted": "Artikel gelöscht.",
+      "addedToCatalogue": "„{name}“ zum Katalog hinzugefügt.",
+      "saveFailed": "Speichern fehlgeschlagen.",
+      "bulkAdded": "{count, plural, one{# Artikel zum Katalog hinzugefügt.} other{# Artikel zum Katalog hinzugefügt.}}",
+      "subAdminCreated": "Unteradmin erstellt.",
+      "genericError": "Fehler.",
+      "accountDeleted": "Konto gelöscht.",
+      "deleteFailed": "Löschen nicht möglich.",
+      "storeAdded": "Filiale hinzugefügt.",
+      "storeUpdated": "Filiale aktualisiert.",
+      "storeDeleted": "Filiale gelöscht.",
+      "storeError": "Filiale konnte nicht gespeichert werden."
+    },
+    "quick": {
+      "title": "Schnell hinzufügen",
+      "subtitle": "{count} gängige Artikel, bereit zur Veröffentlichung. Ein Klick fügt sie dem Katalog hinzu.",
+      "add": "+ Hinzufügen"
+    },
+    "aiText": {
+      "title": "KI-Suche",
+      "subtitle": "Beschreiben Sie einen Bedarf in natürlicher Sprache — die KI (Gemini) schlägt die zu veröffentlichenden Artikel vor.",
+      "label": "Ihr Bedarf",
+      "placeholder": "Z. B.: „Material zum Neustreichen eines 12 m² Schlafzimmers, Wände und Decke“",
+      "ask": "KI fragen",
+      "searching": "Suche läuft…",
+      "spinner": "Gemini analysiert Ihre Anfrage…",
+      "noResults": "Kein Vorschlag für diese Anfrage. Formulieren Sie sie präziser.",
+      "searchFailed": "Die KI-Suche ist fehlgeschlagen.",
+      "added": "Hinzugefügt ✓",
+      "add": "+ Hinzufügen"
+    },
+    "aiPhoto": {
+      "title": "KI-Foto",
+      "subtitle": "Nehmen Sie ein Foto auf oder laden Sie es hoch: Die KI erkennt die sichtbaren Artikel und schlägt sie Ihnen zur Bestätigung vor der Veröffentlichung vor.",
+      "label": "Foto des Artikels (oder der Artikel)",
+      "previewAlt": "Vorschau",
+      "analyze": "Foto analysieren",
+      "analyzing": "Analyse läuft…",
+      "reset": "Zurücksetzen",
+      "spinner": "Gemini analysiert das Bild…",
+      "noResults": "Kein Artikel auf dem Foto erkannt. Versuchen Sie ein schärferes Bild.",
+      "imageFailed": "Die Bildanalyse ist fehlgeschlagen.",
+      "detected": "{count, plural, one{# Artikel erkannt — die zu veröffentlichenden ankreuzen} other{# Artikel erkannt — die zu veröffentlichenden ankreuzen}}",
+      "addSelection": "Auswahl hinzufügen ({count})",
+      "added": "hinzugefügt ✓"
+    },
+    "team": {
+      "addTitle": "Unteradmin hinzufügen",
+      "username": "Benutzername",
+      "password": "Passwort (mind. 6)",
+      "createAccount": "Konto erstellen",
+      "onlyPrincipal": "Nur der Hauptadministrator kann Konten verwalten.",
+      "rolePrincipal": "Hauptadministrator",
+      "roleSub": "Unteradministrator",
+      "you": "· Sie",
+      "delete": "Löschen",
+      "protected": "geschützt",
+      "confirmDelete": "Dieses Administratorkonto löschen?"
+    },
+    "orders": {
+      "empty": "Derzeit keine Angebotsanfragen.",
+      "storeTag": "Filiale",
+      "noStore": "Nicht angegeben"
+    },
+    "stores": {
+      "title": "Filialen",
+      "subtitle": "Verwalten Sie die Solid-BTP-Standorte.",
+      "addTitle": "Filiale hinzufügen",
+      "editTitle": "Filiale bearbeiten",
+      "onlyPrincipal": "Nur der Hauptadministrator kann eine Filiale hinzufügen oder bearbeiten.",
+      "empty": "Noch keine Filialen.",
+      "name": "Name der Filiale",
+      "city": "Stadt",
+      "address": "Adresse",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "hours": "Öffnungszeiten",
+      "lat": "Breitengrad",
+      "lon": "Längengrad",
+      "coordsHint": "GPS-Koordinaten (optional) — um die Karte anzuzeigen.",
+      "note": "Notiz (optional)",
+      "create": "Filiale erstellen",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "confirmDelete": "Diese Filiale löschen?"
+    }
+  },
+  "api": {
+    "unauthorized": "Nicht autorisiert.",
+    "aiDescribe": "Beschreiben Sie, was Sie suchen.",
+    "imageMissing": "Feld „Bild“ fehlt.",
+    "imageTooLarge": "Bild zu groß (max. 5 MB).",
+    "imageFormat": "Nicht unterstütztes Bildformat.",
+    "imageNone": "Kein Bild bereitgestellt.",
+    "imageUnreadable": "Bild nicht lesbar.",
+    "aiConfig": "KI-Dienst nicht konfiguriert.",
+    "aiUnavailable": "KI-Dienst vorübergehend nicht verfügbar.",
+    "aiUnexpected": "Unerwarteter Fehler.",
+    "rateLimited": "Zu viele Anfragen. Bitte warten Sie einen Moment, bevor Sie es erneut versuchen.",
+    "loginRequired": "Anmeldedaten erforderlich.",
+    "loginInvalid": "Benutzername oder Passwort falsch.",
+    "articleFields": "Name und Kategorie erforderlich.",
+    "articleNotFound": "Artikel nicht gefunden.",
+    "adminOnlyAdd": "Nur der Hauptadministrator kann ein Konto hinzufügen.",
+    "adminFields": "Benutzername und Passwort (mind. 6 Zeichen) erforderlich.",
+    "adminExists": "Dieser Benutzername existiert bereits.",
+    "subCannotDelete": "Ein Unteradministrator kann keine Konten löschen.",
+    "accountNotFound": "Konto nicht gefunden.",
+    "principalProtected": "Der Hauptadministrator kann nicht gelöscht werden.",
+    "orderFields": "Name, E-Mail und Telefon erforderlich.",
+    "uploadMultipart": "Erwartetes Format: multipart/form-data.",
+    "uploadFormat": "Nicht unterstütztes Format (JPG, PNG, WEBP oder GIF).",
+    "uploadFailed": "Hochladen fehlgeschlagen.",
+    "storeAdminOnly": "Nur der Hauptadministrator kann Filialen verwalten.",
+    "storeFields": "Name und Stadt der Filiale sind erforderlich.",
+    "storeNotFound": "Filiale nicht gefunden."
+  },
+  "stores": {
+    "tag": "Unsere Filialen",
+    "title": "Ihre nächste Solid-BTP-Filiale",
+    "subtitle": "Mehrere Standorte für Sie in ganz Côte d'Ivoire. Wählen Sie Ihre.",
+    "addressLabel": "Adresse",
+    "phoneLabel": "Telefon",
+    "hoursLabel": "Öffnungszeiten",
+    "emailLabel": "E-Mail",
+    "directions": "Route öffnen",
+    "mapTitle": "Karte — {name}",
+    "empty": "Neue Filialen folgen bald. Schauen Sie wieder vorbei!",
+    "selectPrompt": "Wählen Sie eine Filiale, um sie auf der Karte zu sehen."
+  }
+}

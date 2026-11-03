@@ -1,0 +1,393 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-mono: "Space Mono", monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  html {
+    background-color: #FFFDF8;
+  }
+  body {
+    @apply text-ink font-body antialiased;
+    background-color: transparent;
+  }
+  ::selection {
+    @apply bg-amber text-snow;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  /* Accessible keyboard focus (mouse clicks stay clean via :focus-visible) */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [tabindex]:focus-visible {
+    @apply outline-none ring-2 ring-amber ring-offset-2 ring-offset-sun rounded-sm;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@layer components {
+  /* Technical mono label — a short amber rule leads each one for a designed eyebrow. */
+  .tag {
+    @apply inline-flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.25em] text-muted;
+  }
+  .tag::before {
+    content: "";
+    @apply inline-block h-px w-7 shrink-0 bg-amber;
+  }
+
+  /* Blueprint grid background (warm, faint) */
+  .blueprint {
+    background-image:
+      linear-gradient(rgba(138, 128, 121, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(138, 128, 121, 0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  /* Dotted texture for hero / playful sections */
+  .dots {
+    background-image: radial-gradient(rgba(43, 37, 33, 0.12) 1.4px, transparent 1.4px);
+    background-size: 22px 22px;
+  }
+
+  /* Soft paper grain overlay (very light — keeps surfaces bright) */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  }
+
+  /* Organic colorful blob — drifts slowly behind content */
+  .blob {
+    @apply pointer-events-none absolute rounded-full blur-[90px] animate-blob;
+  }
+
+  /* Buttons ---------------------------------------------------------------- */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-b from-amber to-amber-deep px-7 py-3.5 font-display font-semibold text-snow
+      shadow-glow transition-all duration-200
+      hover:-translate-y-0.5 hover:shadow-glow-strong active:translate-y-0;
+  }
+  .btn-green {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-b from-green to-green-deep px-7 py-3.5 font-display font-semibold text-snow
+      shadow-glow-green transition-all duration-200
+      hover:-translate-y-0.5 active:translate-y-0;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/70 bg-white/55 px-7 py-3.5 font-display font-semibold text-ink shadow-glass backdrop-blur-xl
+      transition-all duration-200 hover:border-amber/50 hover:text-amber-deep hover:-translate-y-0.5;
+  }
+
+  .field {
+    @apply w-full rounded-xl border-2 border-line bg-snow px-4 py-3 font-body text-ink outline-none transition
+      placeholder:text-ink/35 focus:border-amber focus:ring-4 focus:ring-amber/15;
+  }
+
+  /* Soft white card surface with a friendly rounded shape */
+  .card {
+    @apply rounded-3xl border border-line bg-snow shadow-card transition-all duration-300;
+  }
+
+  /* Translucent section surfaces — let the page backdrop show through (frosted).
+     Two tints (.veil warm / .veil-alt cool) alternate to separate sections. */
+  .veil,
+  .veil-alt {
+    -webkit-backdrop-filter: blur(8px) saturate(1.15);
+    backdrop-filter: blur(8px) saturate(1.15);
+  }
+  /* Tint comes from per-ambiance CSS variables, solid through the middle and faded
+     at the top/bottom edges so adjacent bands blend instead of meeting hard lines. */
+  .veil {
+    background-image: linear-gradient(
+      to bottom,
+      rgb(var(--veil) / 0) 0,
+      rgb(var(--veil) / var(--veil-edge)) 60px,
+      rgb(var(--veil) / var(--veil-mid)) 180px,
+      rgb(var(--veil) / var(--veil-mid)) calc(100% - 180px),
+      rgb(var(--veil) / var(--veil-edge)) calc(100% - 60px),
+      rgb(var(--veil) / 0) 100%
+    );
+  }
+  .veil-alt {
+    background-image: linear-gradient(
+      to bottom,
+      rgb(var(--veilB) / 0) 0,
+      rgb(var(--veilB) / var(--veilB-edge)) 60px,
+      rgb(var(--veilB) / var(--veilB-mid)) 180px,
+      rgb(var(--veilB) / var(--veilB-mid)) calc(100% - 180px),
+      rgb(var(--veilB) / var(--veilB-edge)) calc(100% - 60px),
+      rgb(var(--veilB) / 0) 100%
+    );
+  }
+
+  /* Holographic seam — a futuristic HUD divider between sections: a glowing
+     hairline carrying a centred diamond node, so bands are clearly separated by
+     a line of light rather than meeting on a hard edge. */
+  .seam {
+    position: relative;
+    height: 0;
+    z-index: 5;
+  }
+  .seam::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -0.5px;
+    height: 2px;
+    width: min(92%, 72rem);
+    transform: translateX(-50%);
+    border-radius: 9999px;
+    background-image: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.55) 28%, rgba(124, 92, 255, 0.6) 72%, transparent);
+    background-size: 200% auto;
+    animation: gradient-x 8s ease infinite;
+    box-shadow: 0 0 14px -2px rgba(34, 211, 238, 0.5);
+  }
+  /* Centred diamond node sitting on the line. */
+  .seam::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 12px;
+    width: 12px;
+    transform: translate(-50%, -50%) rotate(45deg);
+    pointer-events: none;
+    border-radius: 2px;
+    background-image: linear-gradient(135deg, #FF6A1A, #7C5CFF, #22D3EE);
+    background-size: 200% auto;
+    animation: gradient-x 8s ease infinite;
+    box-shadow: 0 0 18px -1px rgba(124, 92, 255, 0.7), inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  }
+
+  /* Section eyebrow used as a standalone heading kicker */
+  .kicker {
+    @apply tag mb-3;
+  }
+  /* Soft hairline divider */
+  .rule {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-line-strong to-transparent;
+  }
+  .label {
+    @apply mb-1.5 block font-mono text-[11px] uppercase tracking-[0.18em] text-muted;
+  }
+
+  /* Holographic moving-gradient text — the futuristic headline accent */
+  .text-holo {
+    @apply bg-gradient-to-r from-amber via-violet to-cyan bg-clip-text text-transparent;
+    background-size: 200% auto;
+    @apply animate-gradient-x;
+  }
+
+  /* Frosted glass surface (futuristic) */
+  .glass {
+    @apply border border-white/60 bg-white/55 shadow-glass backdrop-blur-xl;
+  }
+  .glass-card {
+    @apply rounded-3xl border border-white/60 bg-white/60 shadow-glass backdrop-blur-xl transition-all duration-300;
+  }
+  /* Dark frosted glass — for the midnight ambiance */
+  .glass-dark {
+    @apply border border-white/15 bg-white/10 shadow-glass backdrop-blur-xl;
+  }
+  .glass-card-dark {
+    @apply rounded-3xl border border-white/15 bg-white/[0.08] shadow-glass backdrop-blur-xl transition-all duration-300;
+  }
+  .btn-ghost-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-3.5 font-display font-semibold text-white shadow-glass backdrop-blur-xl
+      transition-all duration-200 hover:border-white/45 hover:-translate-y-0.5;
+  }
+  /* Neon blueprint grid for the midnight ambiance */
+  .grid-neon {
+    background-image:
+      linear-gradient(rgba(143, 214, 232, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(143, 214, 232, 0.07) 1px, transparent 1px);
+    background-size: 38px 38px;
+  }
+
+  /* Aurora mesh — soft colorful gradient field for futuristic backgrounds */
+  .mesh {
+    background-image:
+      radial-gradient(40% 50% at 12% 18%, rgba(255,176,120,0.45) 0%, transparent 70%),
+      radial-gradient(45% 55% at 88% 12%, rgba(124,92,255,0.32) 0%, transparent 72%),
+      radial-gradient(45% 50% at 78% 88%, rgba(34,211,238,0.30) 0%, transparent 72%),
+      radial-gradient(40% 45% at 22% 92%, rgba(22,163,74,0.20) 0%, transparent 72%);
+  }
+
+  /* Thin gradient hairline — replaces the old solid stripes */
+  .accent-line {
+    background-image: linear-gradient(90deg, transparent, #FF6A1A 22%, #7C5CFF 55%, #22D3EE 82%, transparent);
+  }
+
+  /* Holographic underline tick — a short, animated rule under section titles. */
+  .holo-rule {
+    height: 3px;
+    width: 4.5rem;
+    border-radius: 9999px;
+    background-image: linear-gradient(90deg, #FF6A1A, #7C5CFF, #22D3EE);
+    background-size: 200% auto;
+    @apply animate-gradient-x;
+  }
+
+  /* Blueprint corner brackets — a technical "drawing frame" that wraps a card,
+     echoing construction plans. Orange leads the top, cyan closes the bottom.
+     Brackets sit in the card's padding gutter so they never cross content. */
+  .bp-corners { position: relative; }
+  .bp-corners::before,
+  .bp-corners::after {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    pointer-events: none;
+    opacity: 0.7;
+    --c1: #FF6A1A;
+    --c2: #22D3EE;
+  }
+  .bp-corners::before {
+    background:
+      linear-gradient(var(--c1), var(--c1)) left top / 16px 2px no-repeat,
+      linear-gradient(var(--c1), var(--c1)) left top / 2px 16px no-repeat,
+      linear-gradient(var(--c2), var(--c2)) right top / 16px 2px no-repeat,
+      linear-gradient(var(--c2), var(--c2)) right top / 2px 16px no-repeat;
+  }
+  .bp-corners::after {
+    background:
+      linear-gradient(var(--c2), var(--c2)) left bottom / 16px 2px no-repeat,
+      linear-gradient(var(--c2), var(--c2)) left bottom / 2px 16px no-repeat,
+      linear-gradient(var(--c1), var(--c1)) right bottom / 16px 2px no-repeat,
+      linear-gradient(var(--c1), var(--c1)) right bottom / 2px 16px no-repeat;
+  }
+}
+
+/* Hide scrollbar for horizontal category rail */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* RTL (Arabic): mirror directional arrows/chevrons. Apply `.rtl-flip` to any
+   inline arrow (→ ←) or directional SVG so it points the right way in RTL.
+   Non-directional glyphs (▲ down-chevrons, ★, ◆) are left untouched. */
+[dir="rtl"] .rtl-flip { display: inline-block; transform: scaleX(-1); }
+
+/* ════════════════════════════════════════════════════════════════════════
+   MIDNIGHT ambiance — whole-page dark theme. Scoped to [data-ambiance="minuit"]
+   so it only themes the landing page, and unlayered so it overrides utilities.
+   ════════════════════════════════════════════════════════════════════════ */
+/* ── Per-ambiance section tints (consumed by .veil / .veil-alt) ───────────── */
+:root {
+  --veil: 255 249 238;  --veil-mid: 0.84; --veil-edge: 0.42;
+  --veilB: 221 230 243; --veilB-mid: 0.86; --veilB-edge: 0.45;
+}
+[data-ambiance="atelier"] {
+  --veil: 255 249 238;  --veil-mid: 0.84; --veil-edge: 0.42;   /* warm cream  */
+  --veilB: 221 230 243; --veilB-mid: 0.86; --veilB-edge: 0.45; /* cool blue   */
+}
+[data-ambiance="ivoire"] {
+  --veil: 252 246 232;  --veil-mid: 0.82; --veil-edge: 0.40;   /* soft ivory  */
+  --veilB: 240 229 205; --veilB-mid: 0.85; --veilB-edge: 0.44; /* deep sand   */
+}
+[data-ambiance="gris"] {
+  --veil: 244 247 251;  --veil-mid: 0.82; --veil-edge: 0.40;   /* light grey  */
+  --veilB: 219 226 236; --veilB-mid: 0.86; --veilB-edge: 0.44; /* medium grey */
+}
+[data-ambiance="minuit"] {
+  --veil: 30 40 76;     --veil-mid: 0.50; --veil-edge: 0.16;   /* lit navy    */
+  --veilB: 3 5 14;      --veilB-mid: 0.60; --veilB-edge: 0.22; /* near-black  */
+}
+
+/* Surfaces */
+[data-ambiance="minuit"] .glass,
+[data-ambiance="minuit"] .glass-card {
+  background-color: rgb(255 255 255 / 0.07);
+  border-color: rgb(255 255 255 / 0.14);
+}
+[data-ambiance="minuit"] .card {
+  background-color: #0E1533;
+  border-color: rgb(255 255 255 / 0.10);
+}
+[data-ambiance="minuit"] .field {
+  background-color: rgb(255 255 255 / 0.06);
+  border-color: rgb(255 255 255 / 0.16);
+  color: #EAEFFB;
+}
+[data-ambiance="minuit"] .field::placeholder { color: rgb(234 239 251 / 0.4); }
+[data-ambiance="minuit"] .btn-ghost {
+  background-color: rgb(255 255 255 / 0.08);
+  border-color: rgb(255 255 255 / 0.22);
+  color: #EAEFFB;
+}
+[data-ambiance="minuit"] .tag,
+[data-ambiance="minuit"] .label { color: #97A0B8; }
+
+[data-ambiance="minuit"] .bg-snow,
+[data-ambiance="minuit"] .bg-snow\/90,
+[data-ambiance="minuit"] .bg-white { background-color: #0E1533; }
+[data-ambiance="minuit"] .bg-white\/55,
+[data-ambiance="minuit"] .bg-white\/10 { background-color: rgb(255 255 255 / 0.07); }
+[data-ambiance="minuit"] .bg-mist,
+[data-ambiance="minuit"] .bg-mist\/60 { background-color: #0B1024; }
+[data-ambiance="minuit"] .bg-sun,
+[data-ambiance="minuit"] .bg-sun\/85,
+[data-ambiance="minuit"] .bg-sun\/80 { background-color: rgb(8 12 28 / 0.82); }
+[data-ambiance="minuit"] .bg-line { background-color: rgb(255 255 255 / 0.08); }
+[data-ambiance="minuit"] .to-snow { --tw-gradient-to: #0E1533 var(--tw-gradient-to-position); }
+
+/* Borders */
+[data-ambiance="minuit"] .border-line { border-color: rgb(255 255 255 / 0.10); }
+[data-ambiance="minuit"] .border-white\/60 { border-color: rgb(255 255 255 / 0.14); }
+[data-ambiance="minuit"] .border-ink\/20 { border-color: rgb(255 255 255 / 0.16); }
+[data-ambiance="minuit"] .border-ink\/15 { border-color: rgb(255 255 255 / 0.14); }
+[data-ambiance="minuit"] .border-ink { border-color: rgb(255 255 255 / 0.30); }
+
+/* Text */
+[data-ambiance="minuit"] .text-ink { color: #EAEFFB; }
+[data-ambiance="minuit"] .text-ink\/75 { color: rgb(234 239 251 / 0.80); }
+[data-ambiance="minuit"] .text-ink\/70 { color: rgb(234 239 251 / 0.74); }
+[data-ambiance="minuit"] .text-ink\/65 { color: rgb(234 239 251 / 0.70); }
+[data-ambiance="minuit"] .text-ink\/60 { color: rgb(234 239 251 / 0.64); }
+[data-ambiance="minuit"] .text-ink\/55 { color: rgb(234 239 251 / 0.60); }
+[data-ambiance="minuit"] .text-ink\/40 { color: rgb(234 239 251 / 0.45); }
+[data-ambiance="minuit"] .text-ink\/30 { color: rgb(234 239 251 / 0.34); }
+[data-ambiance="minuit"] .text-ink\/25 { color: rgb(234 239 251 / 0.28); }
+[data-ambiance="minuit"] .text-ink-soft { color: #AEB6CC; }
+[data-ambiance="minuit"] .text-muted,
+[data-ambiance="minuit"] .text-steel,
+[data-ambiance="minuit"] .text-steel\/60 { color: #8C96AE; }
+
+/* ---------------------------------------------------------------------------
+   Impression (factures, rapports). Masque la coquille et le fond d'ambiance ;
+   ne laisse que le document. `.no-print` cache les boutons ; `.print-only`
+   n'apparaît qu'à l'impression.
+--------------------------------------------------------------------------- */
+.print-only { display: none; }
+@media print {
+  .no-print { display: none !important; }
+  .print-only { display: block; }
+  /* Fond d'ambiance plein écran (div.fixed[aria-hidden]) — hors impression. */
+  div[aria-hidden].fixed { display: none !important; }
+  html, body { background: #fff !important; }
+  @page { margin: 14mm; }
+}

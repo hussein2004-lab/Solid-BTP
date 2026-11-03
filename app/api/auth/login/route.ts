@@ -2,14 +2,20 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { verifyPassword, createSession, toPublic, SESSION_COOKIE, SESSION_MAX_AGE_SEC } from "@/lib/auth";
 import { getApiT } from "@/lib/api-i18n";
-import { checkLimit, recordHit, clientIp } from "@/lib/rate-limit";
+import { reserve, clientIp } from "@/lib/rate-limit";
 
-// Anti brute-force : seuls les ÉCHECS comptent. 10 échecs / 15 min par IP, et
-// 5 échecs / 15 min par couple (identifiant, IP) — clé liée à l'IP pour qu'un
-// tiers ne puisse pas bloquer un compte depuis ailleurs (pas de verrouillage DoS).
+// Anti brute-force — seuls les ÉCHECS comptent (une connexion réussie libère sa
+// réservation), fenêtre de 15 min :
+//  - par compte, toutes IP confondues : 20 échecs → plafonne le brute-force
+//    distribué (≈ 80 essais/h max) ; blocage temporaire, levé seul après 15 min ;
+//  - par IP : 10 échecs ; par (compte, IP) : 5 échecs — seulement si l'IP est
+//    fiable (proxy de confiance, cf. TRUST_PROXY).
+// Compromis assumé : un tiers peut bloquer un compte 15 min en enchaînant 20
+// échecs ; c'est le prix d'une limite qu'on ne contourne pas en changeant d'IP.
 const LOGIN_WINDOW_MS = 15 * 60_000;
+const MAX_FAILS_PER_ACCOUNT = 20;
 const MAX_FAILS_PER_IP = 10;
-const MAX_FAILS_PER_USER_IP = 5;
+const MAX_FAILS_PER_ACCOUNT_IP = 5;
 
 export async function POST(req: Request) {
   const t = await getApiT();
@@ -18,17 +24,20 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: t("loginRequired") }, { status: 400 });
   }
 
-  const now = Date.now();
+  // Identifiant borné (64 car.) pour ne pas gonfler les clés du limiteur.
+  const user = String(username).toLowerCase().slice(0, 64);
   const ip = clientIp(req);
-  const ipKey = `login-ip:${ip}`;
-  const userKey = `login-user:${String(username).toLowerCase()}:${ip}`;
-  const byIp = checkLimit(ipKey, MAX_FAILS_PER_IP, LOGIN_WINDOW_MS, now);
-  const byUser = checkLimit(userKey, MAX_FAILS_PER_USER_IP, LOGIN_WINDOW_MS, now);
-  if (!byIp.allowed || !byUser.allowed) {
-    const retry = Math.max(byIp.retryAfterSec, byUser.retryAfterSec);
+  const buckets = [{ key: `login-acct:${user}`, limit: MAX_FAILS_PER_ACCOUNT }];
+  if (ip) {
+    buckets.push({ key: `login-ip:${ip}`, limit: MAX_FAILS_PER_IP });
+    buckets.push({ key: `login-acct-ip:${user}:${ip}`, limit: MAX_FAILS_PER_ACCOUNT_IP });
+  }
+  // Réservation atomique AVANT tout await : les tentatives en vol comptent.
+  const attempt = reserve(buckets, LOGIN_WINDOW_MS, Date.now());
+  if (!attempt.allowed) {
     return NextResponse.json(
       { error: t("rateLimited") },
-      { status: 429, headers: { "Retry-After": String(retry) } },
+      { status: 429, headers: { "Retry-After": String(attempt.retryAfterSec) } },
     );
   }
 
@@ -36,10 +45,9 @@ export async function POST(req: Request) {
     where: { username: { equals: String(username), mode: "insensitive" } },
   });
   if (!admin || !verifyPassword(String(password), admin.salt, admin.passwordHash)) {
-    recordHit(ipKey, now);
-    recordHit(userKey, now);
-    return NextResponse.json({ error: t("loginInvalid") }, { status: 401 });
+    return NextResponse.json({ error: t("loginInvalid") }, { status: 401 }); // l'échec reste compté
   }
+  attempt.release(); // succès : ne compte pas
 
   const token = await createSession(admin.id);
   const res = NextResponse.json({ admin: toPublic(admin) });

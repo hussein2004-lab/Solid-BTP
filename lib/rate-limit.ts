@@ -54,48 +54,75 @@ export function rateLimit(
   return { allowed: true, remaining: limit - recent.length, retryAfterSec: 0 };
 }
 
+/** Purge les clés dont tous les hits sont sortis de la fenêtre (mémoire bornée). */
+function sweep(cutoff: number): void {
+  if (hits.size <= 5000) return;
+  for (const [k, arr] of hits) {
+    if (arr.every((t) => t <= cutoff)) hits.delete(k);
+  }
+}
+
 /**
- * Vérifie une limite SANS enregistrer de hit (à combiner avec `recordHit`, ex.
- * pour ne compter que les échecs de connexion).
+ * Réserve ATOMIQUEMENT un hit sur plusieurs compteurs : soit toutes les limites
+ * passent et un hit est enregistré sur chacune, soit rien n'est enregistré.
+ * Synchrone (aucun `await`) → pas de course entre vérification et enregistrement.
+ * `release()` annule la réservation (ex. connexion réussie : seuls les échecs comptent).
  */
-export function checkLimit(
-  key: string,
-  limit: number,
+export function reserve(
+  buckets: Array<{ key: string; limit: number }>,
   windowMs: number,
   now: number,
-): RateLimitResult {
+): { allowed: boolean; retryAfterSec: number; release: () => void } {
   const cutoff = now - windowMs;
-  const recent = (hits.get(key) ?? []).filter((t) => t > cutoff);
-  hits.set(key, recent);
-  if (recent.length >= limit) {
-    const retryAfterSec = Math.max(1, Math.ceil((recent[0] + windowMs - now) / 1000));
-    return { allowed: false, remaining: 0, retryAfterSec };
+  let retryAfterSec = 0;
+  for (const { key, limit } of buckets) {
+    const recent = (hits.get(key) ?? []).filter((t) => t > cutoff);
+    if (recent.length) hits.set(key, recent);
+    else hits.delete(key);
+    if (recent.length >= limit) {
+      retryAfterSec = Math.max(retryAfterSec, Math.ceil((recent[0] + windowMs - now) / 1000), 1);
+    }
   }
-  return { allowed: true, remaining: limit - recent.length, retryAfterSec: 0 };
-}
+  if (retryAfterSec > 0) return { allowed: false, retryAfterSec, release: () => {} };
 
-/** Enregistre un hit pour `key` (voir `checkLimit`). */
-export function recordHit(key: string, now: number): void {
-  const arr = hits.get(key) ?? [];
-  arr.push(now);
-  hits.set(key, arr);
+  for (const { key } of buckets) {
+    const arr = hits.get(key) ?? [];
+    arr.push(now);
+    hits.set(key, arr);
+  }
+  sweep(cutoff);
+  return {
+    allowed: true,
+    retryAfterSec: 0,
+    release: () => {
+      for (const { key } of buckets) {
+        const arr = hits.get(key);
+        const i = arr ? arr.lastIndexOf(now) : -1;
+        if (arr && i >= 0) arr.splice(i, 1);
+        if (arr && arr.length === 0) hits.delete(key);
+      }
+    },
+  };
 }
 
 /**
- * Adresse IP du client, non falsifiable derrière un proxy de confiance.
- *  - `x-real-ip` : posé par la plateforme / le reverse proxy (Vercel, nginx).
- *  - sinon la DERNIÈRE entrée de `x-forwarded-for` (ajoutée par le proxy le plus
- *    proche) — jamais la première, que le client peut forger librement.
+ * Faut-il croire les en-têtes de proxy ? Oui sur Vercel (la plateforme les
+ * réécrit) ou si TRUST_PROXY=1 (reverse proxy maison type nginx). Sinon le
+ * client peut les forger librement → on les ignore.
  */
-export function clientIp(req: Request): string {
+const TRUST_PROXY = process.env.TRUST_PROXY === "1" || Boolean(process.env.VERCEL);
+
+/**
+ * Adresse IP du client, ou `null` si elle n'est pas fiable (pas de proxy de
+ * confiance). Derrière un proxy de confiance : `x-real-ip`, sinon la DERNIÈRE
+ * entrée de `x-forwarded-for` (ajoutée par ce proxy) — jamais la première.
+ */
+export function clientIp(req: Request): string | null {
+  if (!TRUST_PROXY) return null;
   const real = req.headers.get("x-real-ip")?.trim();
   if (real) return real;
-  const xff = req.headers.get("x-forwarded-for");
-  if (xff) {
-    const parts = xff.split(",").map((s) => s.trim()).filter(Boolean);
-    if (parts.length) return parts[parts.length - 1]!;
-  }
-  return "unknown";
+  const parts = (req.headers.get("x-forwarded-for") ?? "").split(",").map((s) => s.trim()).filter(Boolean);
+  return parts.length ? parts[parts.length - 1]! : null;
 }
 
 /**
@@ -103,7 +130,8 @@ export function clientIp(req: Request): string {
  * (avec en-tête `Retry-After`) si la limite est dépassée, sinon `null`.
  */
 export async function enforceAiRateLimit(req: Request): Promise<NextResponse | null> {
-  const key = `ai:${clientIp(req)}`;
+  // IP non fiable → budget commun ("direct") : plus strict, mais infalsifiable.
+  const key = `ai:${clientIp(req) ?? "direct"}`;
   const { allowed, remaining, retryAfterSec } = rateLimit(
     key,
     AI_RATE_LIMIT,

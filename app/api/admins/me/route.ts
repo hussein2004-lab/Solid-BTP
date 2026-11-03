@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { hashPassword, toPublic, verifyPassword } from "@/lib/auth";
+import { cookies } from "next/headers";
+import { hashPassword, toPublic, verifyPassword, SESSION_COOKIE } from "@/lib/auth";
 import { requireAdmin, errorResponse } from "@/lib/access";
 
 // Modifier ses propres identifiants (nom d'utilisateur et/ou mot de passe).
@@ -39,6 +40,11 @@ export async function PATCH(req: Request) {
     }
 
     const updated = await prisma.admin.update({ where: { id: me.id }, data });
+    if (newPassword) {
+      // Changement de mot de passe : déconnecte toutes les autres sessions.
+      const current = (await cookies()).get(SESSION_COOKIE)?.value ?? "";
+      await prisma.session.deleteMany({ where: { adminId: me.id, token: { not: current } } });
+    }
     return NextResponse.json({ admin: toPublic(updated) });
   } catch (e) {
     return errorResponse(e);

@@ -14,6 +14,7 @@ import {
 } from "@/lib/gemini";
 import { enforceAiRateLimit } from "@/lib/rate-limit";
 import { getApiT } from "@/lib/api-i18n";
+import { getCurrentAdmin } from "@/lib/auth";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -74,6 +75,9 @@ export async function POST(req: Request) {
       if (!data) {
         return NextResponse.json({ error: t("imageNone") }, { status: 400 });
       }
+      if (Math.floor((data.length * 3) / 4) > MAX_BYTES) {
+        return NextResponse.json({ error: t("imageTooLarge") }, { status: 400 });
+      }
       if (!ALLOWED.includes(mimeType)) {
         return NextResponse.json({ error: t("imageFormat") }, { status: 400 });
       }
@@ -85,6 +89,10 @@ export async function POST(req: Request) {
 
   if (!image) {
     return NextResponse.json({ error: t("imageNone") }, { status: 400 });
+  }
+  // Le mode "propose" (création d'articles) est réservé aux admins connectés.
+  if (mode !== "match" && !(await getCurrentAdmin())) {
+    return NextResponse.json({ error: t("unauthorized") }, { status: 401 });
   }
 
   const rows = await prisma.article.findMany({ orderBy: { createdAt: "desc" } });

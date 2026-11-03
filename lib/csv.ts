@@ -5,7 +5,10 @@ import { NextResponse } from "next/server";
 
 /** Échappe une valeur de cellule pour le CSV (guillemets, séparateur, retours ligne). */
 function cell(value: unknown): string {
-  const s = value === null || value === undefined ? "" : String(value);
+  let s = value === null || value === undefined ? "" : String(value);
+  // Anti-injection de formules Excel : un texte commençant par = + - @ (ou tab/CR)
+  // est préfixé d'une apostrophe. Les nombres (ex. soldes négatifs) restent intacts.
+  if (typeof value !== "number" && /^[=+\-@\t\r]/.test(s)) s = `'${s}`;
   if (/[";\n\r]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
   return s;
 }

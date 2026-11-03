@@ -5,6 +5,8 @@ import { prisma } from "./prisma";
 import type { PublicAdmin, Role } from "./types";
 
 export const SESSION_COOKIE = "sbtp_session";
+/** Durée de vie d'une session (cookie ET côté serveur) : 7 jours. */
+export const SESSION_MAX_AGE_SEC = 60 * 60 * 24 * 7;
 
 export function hashPassword(password: string, salt?: string) {
   const s = salt ?? crypto.randomBytes(16).toString("hex");
@@ -51,5 +53,10 @@ export async function getCurrentAdmin(): Promise<DbAdmin | null> {
   if (!token) return null;
   const session = await prisma.session.findUnique({ where: { token } });
   if (!session) return null;
+  // Session expirée : on la supprime et on refuse (la base fait foi, pas le cookie).
+  if (Date.now() - session.createdAt.getTime() > SESSION_MAX_AGE_SEC * 1000) {
+    await prisma.session.deleteMany({ where: { token } });
+    return null;
+  }
   return prisma.admin.findUnique({ where: { id: session.adminId } });
 }

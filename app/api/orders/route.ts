@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { newId } from "@/lib/db";
-import { getCurrentAdmin } from "@/lib/auth";
+import { requireAdmin, isSuper, accessibleStoreIds, errorResponse } from "@/lib/access";
 import { getApiT } from "@/lib/api-i18n";
 
 // Public: submit a contact / order request.
@@ -34,11 +34,15 @@ export async function POST(req: Request) {
   return NextResponse.json({ ok: true }, { status: 201 });
 }
 
-// Protected: list submitted orders, newest first.
+// Protected: list submitted orders, newest first, limited to the admin's stores.
+// Orders without a destination store (storeId "") are visible to the super-admin only.
 export async function GET() {
-  const t = await getApiT();
-  const admin = await getCurrentAdmin();
-  if (!admin) return NextResponse.json({ error: t("unauthorized") }, { status: 401 });
-  const orders = await prisma.order.findMany({ orderBy: { createdAt: "desc" } });
-  return NextResponse.json({ orders });
+  try {
+    const admin = await requireAdmin();
+    const where = isSuper(admin) ? {} : { storeId: { in: await accessibleStoreIds(admin) } };
+    const orders = await prisma.order.findMany({ where, orderBy: { createdAt: "desc" } });
+    return NextResponse.json({ orders });
+  } catch (e) {
+    return errorResponse(e);
+  }
 }

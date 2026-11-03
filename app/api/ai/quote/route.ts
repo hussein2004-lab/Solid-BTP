@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { geminiJSON, catalogueContextWithIds, aiError } from "@/lib/gemini";
 import { enforceAiRateLimit } from "@/lib/rate-limit";
-import { requireAdmin, errorResponse, AccessError } from "@/lib/access";
+import { requireAdmin, canAccessStore, isSuper, errorResponse, AccessError } from "@/lib/access";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -47,7 +47,7 @@ export async function POST(req: Request) {
   if (limited) return limited;
 
   try {
-    await requireAdmin();
+    const admin = await requireAdmin();
     const body = await req.json().catch(() => ({}));
 
     let message = String(body?.message ?? "").trim();
@@ -57,7 +57,9 @@ export async function POST(req: Request) {
 
     if (!message && body?.orderId) {
       const order = await prisma.order.findUnique({ where: { id: String(body.orderId) } });
-      if (!order) return NextResponse.json({ error: "Demande introuvable." }, { status: 404 });
+      // Même réponse 404 si la demande appartient à un magasin non accessible.
+      const allowed = order && (order.storeId ? await canAccessStore(admin, order.storeId) : isSuper(admin));
+      if (!order || !allowed) return NextResponse.json({ error: "Demande introuvable." }, { status: 404 });
       message = order.message || "";
       customerName = order.name;
       customerPhone = order.phone;

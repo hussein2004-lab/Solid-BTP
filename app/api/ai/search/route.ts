@@ -13,6 +13,7 @@ import {
 } from "@/lib/gemini";
 import { enforceAiRateLimit } from "@/lib/rate-limit";
 import { getApiT } from "@/lib/api-i18n";
+import { getCurrentAdmin } from "@/lib/auth";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -44,6 +45,10 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: t("aiDescribe") }, { status: 400 });
   }
   const mode = body?.mode === "match" ? "match" : "propose";
+  // Le mode "propose" (création d'articles) est réservé aux admins connectés.
+  if (mode !== "match" && !(await getCurrentAdmin())) {
+    return NextResponse.json({ error: t("unauthorized") }, { status: 401 });
+  }
 
   const rows = await prisma.article.findMany({ orderBy: { createdAt: "desc" } });
   const articles = rows.map((a) => ({ ...a, createdAt: a.createdAt.toISOString() }));

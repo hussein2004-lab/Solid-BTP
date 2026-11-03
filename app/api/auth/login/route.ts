@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { verifyPassword, createSession, toPublic, SESSION_COOKIE, SESSION_MAX_AGE_SEC } from "@/lib/auth";
+import { verifyPassword, hashPassword, createSession, toPublic, SESSION_COOKIE, SESSION_MAX_AGE_SEC } from "@/lib/auth";
 import { getApiT } from "@/lib/api-i18n";
 import { reserve, clientIp } from "@/lib/rate-limit";
 
@@ -16,6 +16,8 @@ const LOGIN_WINDOW_MS = 15 * 60_000;
 const MAX_FAILS_PER_ACCOUNT = 20;
 const MAX_FAILS_PER_IP = 10;
 const MAX_FAILS_PER_ACCOUNT_IP = 5;
+// Hash factice (calculé une fois) pour égaliser le temps des comptes inconnus.
+const DUMMY = hashPassword("dummy-password-for-timing");
 
 export async function POST(req: Request) {
   const t = await getApiT();
@@ -30,7 +32,9 @@ export async function POST(req: Request) {
   const admin = await prisma.admin.findFirst({
     where: { username: { equals: String(username), mode: "insensitive" } },
   });
-  const acct = admin?.id ?? "unknown";
+  // Compte inconnu : compteur PAR NOM (forme canonique) — même comportement
+  // qu'un compte réel, pour ne pas révéler quels identifiants existent.
+  const acct = admin?.id ?? `name:${String(username).normalize("NFKC").toLowerCase().slice(0, 64)}`;
   const ip = clientIp(req);
   const buckets = [{ key: `login-acct:${acct}`, limit: MAX_FAILS_PER_ACCOUNT }];
   if (ip) {
@@ -47,7 +51,11 @@ export async function POST(req: Request) {
     );
   }
 
-  if (!admin || !verifyPassword(String(password), admin.salt, admin.passwordHash)) {
+  // Compte inconnu : scrypt sur un hash factice → même temps de réponse.
+  const ok = admin
+    ? verifyPassword(String(password), admin.salt, admin.passwordHash)
+    : (verifyPassword(String(password), DUMMY.salt, DUMMY.hash), false);
+  if (!ok || !admin) {
     return NextResponse.json({ error: t("loginInvalid") }, { status: 401 }); // l'échec reste compté
   }
   attempt.release(); // succès : ne compte pas

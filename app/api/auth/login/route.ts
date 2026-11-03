@@ -24,15 +24,21 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: t("loginRequired") }, { status: 400 });
   }
 
-  // Identifiant borné (64 car.) pour ne pas gonfler les clés du limiteur.
-  const user = String(username).toLowerCase().slice(0, 64);
+  // Lecture seule d'abord : les compteurs sont clés sur l'identité canonique
+  // (admin.id), pas sur la saisie brute — aucune variante de casse/Unicode ne
+  // peut ouvrir un compteur neuf. Comptes inconnus : un compteur commun.
+  const admin = await prisma.admin.findFirst({
+    where: { username: { equals: String(username), mode: "insensitive" } },
+  });
+  const acct = admin?.id ?? "unknown";
   const ip = clientIp(req);
-  const buckets = [{ key: `login-acct:${user}`, limit: MAX_FAILS_PER_ACCOUNT }];
+  const buckets = [{ key: `login-acct:${acct}`, limit: MAX_FAILS_PER_ACCOUNT }];
   if (ip) {
     buckets.push({ key: `login-ip:${ip}`, limit: MAX_FAILS_PER_IP });
-    buckets.push({ key: `login-acct-ip:${user}:${ip}`, limit: MAX_FAILS_PER_ACCOUNT_IP });
+    buckets.push({ key: `login-acct-ip:${acct}:${ip}`, limit: MAX_FAILS_PER_ACCOUNT_IP });
   }
-  // Réservation atomique AVANT tout await : les tentatives en vol comptent.
+  // Réservation atomique : entre reserve() et la vérification (synchrone, scrypt)
+  // il n'y a aucun await, donc les tentatives concurrentes sont toutes comptées.
   const attempt = reserve(buckets, LOGIN_WINDOW_MS, Date.now());
   if (!attempt.allowed) {
     return NextResponse.json(
@@ -41,9 +47,6 @@ export async function POST(req: Request) {
     );
   }
 
-  const admin = await prisma.admin.findFirst({
-    where: { username: { equals: String(username), mode: "insensitive" } },
-  });
   if (!admin || !verifyPassword(String(password), admin.salt, admin.passwordHash)) {
     return NextResponse.json({ error: t("loginInvalid") }, { status: 401 }); // l'échec reste compté
   }

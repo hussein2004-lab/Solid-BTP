@@ -47,3 +47,9 @@ Thumbs.db
 # Local Claude Code state
 .claude/*.local.md
 .claude/settings.local.json
+
+# Private business documents and stray captures (kept locally, not published)
+Devis_Solid-BTP.html
+Devis_Solid-BTP.pdf
+scripts/make-devis.mjs
+image.png

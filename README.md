@@ -112,4 +112,4 @@ messages/              translations for the 10 locales
 
 ## Author
 
-**Hussein Zaidan** · [github.com/hussein2004-lab](https://github.com/hussein2004-lab)
+**Hussein Zeidan** · [GitHub](https://github.com/hussein2004-lab) · [LinkedIn](https://www.linkedin.com/in/hussein-zeidan-8924a2450/)
